@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>🔥 Lokão Fase 3 🔥</title>
+  <title>🔥 Lokão Fase Final 🔥</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
@@ -14,7 +14,7 @@
 
     body {
       font-family: 'Orbitron', sans-serif;
-      background: #000;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
       color: #fff;
       overflow-x: hidden;
     }
@@ -23,7 +23,7 @@
       position: fixed;
       top: 0; left: 0;
       width: 100%;
-      background: #000;
+      background: rgba(0, 0, 0, 0.85);
       padding: 0.6rem 1.5rem;
       display: flex;
       justify-content: space-between;
@@ -54,30 +54,98 @@
     }
 
     header {
-      min-height: 88vh;
+      height: 90vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-top: 60px;
+      padding-top: 50px;
       background: #000;
     }
 
     header h1 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       color: #0ff;
+      text-align: center;
       text-shadow:
-        0 0 5px #0ff,
         0 0 10px #0ff,
         0 0 20px #0ff,
+        0 0 30px #0ff,
         0 0 40px #0ff;
       animation: flicker 2s infinite alternate;
-      text-align: center;
     }
 
     @keyframes flicker {
       0% { opacity: 1; }
       50% { opacity: 0.9; }
       100% { opacity: 1; }
+    }
+
+    section {
+      padding: 40px 5%;
+      text-align: center;
+    }
+
+    .about h2,
+    .features h2 {
+      font-size: 2rem;
+      color: #0ff;
+      margin-bottom: 10px;
+    }
+
+    .about p {
+      color: #ccc;
+      font-size: 1rem;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 30px;
+    }
+
+    .feature-box {
+      background: #1a1a1a;
+      border: 1px solid #0ff2;
+      border-radius: 10px;
+      padding: 1.2rem;
+      transition: 0.3s;
+    }
+
+    .feature-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #0ff4;
+    }
+
+    .feature-box i {
+      font-size: 2rem;
+      color: #0ff;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background: #000;
+      padding: 1rem;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #0ff;
+      color: #000;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #0cc;
     }
 
     /* Botões flutuantes com ícones */
@@ -133,7 +201,47 @@
     <h1>BEM-VINDO AO<br>LOKÃO 2.0 😈</h1>
   </header>
 
-  <!-- Botões flutuantes com ícones -->
+  <section id="sobre" class="about">
+    <h2>Sobre Nós</h2>
+    <p>Projetamos sites que deixam o queixo caído 🤯. Cheios de estilo, impacto e aquela pegada tech que ninguém esquece.</p>
+    <a href="#recursos" class="btn">Ver Recursos</a>
+  </section>
+
+  <section id="recursos" class="features">
+    <h2>Recursos</h2>
+    <div class="feature-box">
+      <i class="fas fa-rocket"></i>
+      <h3>Performance</h3>
+      <p>Velocidade máxima sempre 🚀</p>
+    </div>
+    <div class="feature-box">
+      <i class="fas fa-cogs"></i>
+      <h3>Customizável</h3>
+      <p>Você manda, o site obedece ⚙️</p>
+    </div>
+    <div class="feature-box">
+      <i class="fas fa-shield-alt"></i>
+      <h3>Seguro</h3>
+      <p>Proteção nível militar 🛡️</p>
+    </div>
+    <div class="feature-box">
+      <i class="fas fa-magic"></i>
+      <h3>Visual Mágico</h3>
+      <p>Design que hipnotiza ✨</p>
+    </div>
+  </section>
+
+  <section id="contato" class="about">
+    <h2>Contato</h2>
+    <p>Bora criar o impossível juntos? Chama no WhatsApp ou segue no Insta!</p>
+    <a href="https://wa.me/5599999999999" class="btn">Falar no WhatsApp</a>
+  </section>
+
+  <footer>
+    &copy; 2025 Lokão™. Todos os direitos reservados.
+  </footer>
+
+  <!-- Botões flutuantes com ícones reais -->
   <a href="https://wa.me/5599999999999" class="floating-btn whatsapp" target="_blank">
     <i class="fab fa-whatsapp"></i>
   </a>
