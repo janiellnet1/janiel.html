@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SecureVPN - Proteção Online Premium</title>
+    <title>SecureVPN by JaniellNet - Proteção Online Premium</title>
     <style>
         /* Reset e Estilos Gerais */
         * {
@@ -17,6 +17,7 @@
             background-color: #f5f5f5;
             color: #333;
             line-height: 1.6;
+            padding-top: 80px;
         }
         
         .container {
@@ -26,7 +27,7 @@
             padding: 0 15px;
         }
         
-        /* Cabeçalho */
+        /* Cabeçalho Fixo */
         header {
             background-color: #1a1a2e;
             color: white;
@@ -34,8 +35,10 @@
             position: fixed;
             width: 100%;
             top: 0;
+            left: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
         
         .header-container {
@@ -54,13 +57,24 @@
             color: white;
         }
         
+        .powered-by {
+            font-size: 12px;
+            color: #aaa;
+            margin-left: 5px;
+        }
+        
+        .powered-by a {
+            color: #4cc9f0;
+            text-decoration: none;
+        }
+        
         nav ul {
             display: flex;
             list-style: none;
         }
         
         nav ul li {
-            margin-left: 30px;
+            margin-left: 20px;
         }
         
         nav ul li a {
@@ -68,10 +82,13 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            padding: 8px 12px;
+            border-radius: 4px;
         }
         
         nav ul li a:hover {
             color: #4cc9f0;
+            background-color: rgba(255,255,255,0.1);
         }
         
         .btn {
@@ -82,19 +99,41 @@
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
         }
         
         .btn:hover {
             background-color: #3aa8d8;
+            transform: translateY(-2px);
         }
         
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             color: white;
-            padding: 150px 0 100px;
+            padding: 100px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://janiellnet.shop/assets/vpn-pattern.png') repeat;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
         
         .hero h1 {
@@ -112,6 +151,7 @@
             display: flex;
             justify-content: center;
             gap: 20px;
+            flex-wrap: wrap;
         }
         
         .btn-secondary {
@@ -123,8 +163,8 @@
             background-color: rgba(76, 201, 240, 0.1);
         }
         
-        /* Recursos */
-        .features {
+        /* Seções */
+        section {
             padding: 80px 0;
         }
         
@@ -136,14 +176,29 @@
         .section-title h2 {
             font-size: 36px;
             color: #1a1a2e;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #4cc9f0;
         }
         
         .section-title p {
             color: #666;
             max-width: 700px;
-            margin: 0 auto;
+            margin: 15px auto 0;
         }
         
+        /* Recursos */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -155,7 +210,8 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s;
+            text-align: center;
         }
         
         .feature-card:hover {
@@ -175,9 +231,8 @@
             color: #1a1a2e;
         }
         
-        /* Planos de Preço */
+        /* Planos */
         .pricing {
-            padding: 80px 0;
             background-color: #f9f9f9;
         }
         
@@ -194,16 +249,16 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             text-align: center;
-            transition: transform 0.3s;
+            transition: all 0.3s;
+            position: relative;
         }
         
         .pricing-card:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
         
         .pricing-card.popular {
             border: 2px solid #4cc9f0;
-            position: relative;
         }
         
         .popular-tag {
@@ -248,10 +303,6 @@
         }
         
         /* Testemunhos */
-        .testimonials {
-            padding: 80px 0;
-        }
-        
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -268,6 +319,15 @@
         .testimonial-text {
             font-style: italic;
             margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 24px;
+            color: #4cc9f0;
+            opacity: 0.5;
         }
         
         .testimonial-author {
@@ -295,7 +355,6 @@
         
         /* Contato */
         .contact {
-            padding: 80px 0;
             background-color: #f9f9f9;
         }
         
@@ -339,6 +398,13 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #4cc9f0;
+            outline: none;
         }
         
         .contact-form textarea {
@@ -407,23 +473,41 @@
             font-size: 14px;
         }
         
+        .janiellnet-badge {
+            display: inline-block;
+            background-color: rgba(76, 201, 240, 0.1);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        
+        .janiellnet-badge a {
+            color: #4cc9f0;
+            text-decoration: none;
+        }
+        
         /* Responsividade */
         @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+            
             .header-container {
                 flex-direction: column;
             }
             
             .logo {
-                margin-bottom: 20px;
+                margin-bottom: 15px;
             }
             
             nav ul {
-                flex-direction: column;
-                align-items: center;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             
             nav ul li {
-                margin: 10px 0;
+                margin: 5px;
             }
             
             .hero h1 {
@@ -444,22 +528,28 @@
                 max-width: 250px;
                 margin-bottom: 10px;
             }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Cabeçalho -->
+    <!-- Cabeçalho Fixo -->
     <header>
         <div class="container header-container">
-            <div class="logo">Secure<span>VPN</span></div>
+            <div>
+                <div class="logo">Secure<span>VPN</span> <span class="powered-by">by <a href="https://janiellnet.shop" target="_blank">JaniellNet</a></span></div>
+            </div>
             <nav>
                 <ul>
                     <li><a href="#home">Início</a></li>
                     <li><a href="#features">Recursos</a></li>
                     <li><a href="#pricing">Planos</a></li>
                     <li><a href="#contact">Contato</a></li>
-                    <li><a href="#" class="btn">Entrar</a></li>
+                    <li><a href="https://janiellnet.shop/login" class="btn">Entrar</a></li>
                 </ul>
             </nav>
         </div>
@@ -467,12 +557,15 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="container">
+        <div class="container hero-content">
             <h1>Proteção Online Premium</h1>
             <p>Nossa VPN de alta velocidade protege sua privacidade, permite acesso a conteúdo global e mantém seus dados seguros em qualquer rede.</p>
             <div class="hero-btns">
                 <a href="#pricing" class="btn">Comece Agora</a>
                 <a href="#features" class="btn btn-secondary">Saiba Mais</a>
+            </div>
+            <div class="janiellnet-badge">
+                Solução de segurança desenvolvida por <a href="https://janiellnet.shop" target="_blank">JaniellNet</a>
             </div>
         </div>
     </section>
@@ -549,7 +642,7 @@
                         <li>Suporte por e-mail</li>
                         <li>Criptografia AES-256</li>
                     </ul>
-                    <a href="#" class="btn">Assinar</a>
+                    <a href="https://janiellnet.shop/signup?plan=basic" class="btn">Assinar</a>
                 </div>
                 <div class="pricing-card popular">
                     <div class="popular-tag">Mais Popular</div>
@@ -563,7 +656,7 @@
                         <li>Criptografia AES-256</li>
                         <li>Proteção contra malware</li>
                     </ul>
-                    <a href="#" class="btn">Assinar</a>
+                    <a href="https://janiellnet.shop/signup?plan=premium" class="btn">Assinar</a>
                 </div>
                 <div class="pricing-card">
                     <h3>Família</h3>
@@ -577,7 +670,7 @@
                         <li>Proteção contra malware</li>
                         <li>Controle parental</li>
                     </ul>
-                    <a href="#" class="btn">Assinar</a>
+                    <a href="https://janiellnet.shop/signup?plan=family" class="btn">Assinar</a>
                 </div>
             </div>
         </div>
@@ -593,7 +686,7 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-text">
-                        "Estou usando a SecureVPN há mais de um ano e nunca tive problemas. A velocidade é incrível e consigo acessar todos os meus serviços de streaming favoritos quando estou viajando."
+                        Estou usando a SecureVPN há mais de um ano e nunca tive problemas. A velocidade é incrível e consigo acessar todos os meus serviços de streaming favoritos quando estou viajando.
                     </div>
                     <div class="testimonial-author">
                         <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Ana Silva" class="author-img">
@@ -605,7 +698,7 @@
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-text">
-                        "Como jornalista, a privacidade online é crucial para mim. A SecureVPN me dá a tranquilidade de saber que minhas comunicações estão seguras, não importa onde eu esteja trabalhando."
+                        Como jornalista, a privacidade online é crucial para mim. A SecureVPN me dá a tranquilidade de saber que minhas comunicações estão seguras, não importa onde eu esteja trabalhando.
                     </div>
                     <div class="testimonial-author">
                         <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Mendes" class="author-img">
@@ -617,7 +710,7 @@
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-text">
-                        "Comprei a VPN principalmente para jogar, e a diferença de ping é impressionante. Além disso, a facilidade de uso em todos os meus dispositivos tornou a experiência perfeita."
+                        Comprei a VPN principalmente para jogar, e a diferença de ping é impressionante. Além disso, a facilidade de uso em todos os meus dispositivos tornou a experiência perfeita.
                     </div>
                     <div class="testimonial-author">
                         <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Pedro Rocha" class="author-img">
@@ -643,15 +736,15 @@
                     <h3>Fale Conosco</h3>
                     <p>Estamos comprometidos em fornecer o melhor suporte ao cliente. Entre em contato conosco por qualquer meio que preferir.</p>
                     <ul class="contact-details">
-                        <li><i class="fas fa-envelope"></i> suporte@securevpn.com</li>
+                        <li><i class="fas fa-envelope"></i> suporte@janiellnet.shop</li>
                         <li><i class="fas fa-phone"></i> (11) 1234-5678</li>
                         <li><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000, São Paulo - SP</li>
                     </ul>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://facebook.com/janiellnet" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/janiellnet" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/janiellnet" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/company/janiellnet" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="contact-form">
@@ -673,7 +766,12 @@
             <div class="footer-container">
                 <div class="footer-col">
                     <h3>SecureVPN</h3>
-                    <p>Protegendo sua privacidade online desde 2015. Oferecemos a melhor combinação de velocidade, segurança e facilidade de uso.</p>
+                    <p>Protegendo sua privacidade online desde 2023. Uma solução JaniellNet para segurança digital.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
                 <div class="footer-col">
                     <h3>Links Rápidos</h3>
@@ -682,27 +780,29 @@
                         <li><a href="#features">Recursos</a></li>
                         <li><a href="#pricing">Planos</a></li>
                         <li><a href="#contact">Contato</a></li>
+                        <li><a href="https://janiellnet.shop/blog">Blog</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h3>Legal</h3>
                     <ul>
-                        <li><a href="#">Termos de Serviço</a></li>
-                        <li><a href="#">Política de Privacidade</a></li>
-                        <li><a href="#">Política de Reembolso</a></li>
-                        <li><a href="#">DMCA</a></li>
+                        <li><a href="https://janiellnet.shop/terms">Termos de Serviço</a></li>
+                        <li><a href="https://janiellnet.shop/privacy">Política de Privacidade</a></li>
+                        <li><a href="https://janiellnet.shop/refund">Política de Reembolso</a></li>
+                        <li><a href="https://janiellnet.shop/dmca">DMCA</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h3>Assine nossa newsletter</h3>
+                    <h3>Newsletter</h3>
                     <form id="newsletterForm">
                         <input type="email" name="email" placeholder="Seu e-mail" required>
                         <button type="submit" class="btn">Assinar</button>
                     </form>
+                    <p>Receba as últimas novidades e ofertas especiais.</p>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 SecureVPN. Todos os direitos reservados.</p>
+                <p>&copy; 2023 SecureVPN by JaniellNet. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
@@ -736,14 +836,17 @@
         // Efeito de rolagem para o cabeçalho
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(26, 26, 46, 0.9)';
+            if (window.scrollY > 50) {
                 header.style.padding = '15px 0';
+                header.style.background = 'rgba(26, 26, 46, 0.98)';
             } else {
-                header.style.background = '#1a1a2e';
                 header.style.padding = '20px 0';
+                header.style.background = '#1a1a2e';
             }
         });
+
+        // Adiciona ano atual no copyright
+        document.querySelector('.copyright p').innerHTML = `&copy; ${new Date().getFullYear()} SecureVPN by JaniellNet. Todos os direitos reservados.`;
     </script>
 </body>
 </html>
