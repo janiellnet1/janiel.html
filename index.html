@@ -3,346 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🚀 SITE POR R$30 | Domínio + R$30 = Site Pronto!</title>
+    <title>Criação de Sites por R$30 | Domínio + R$30 e Pronto</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --purple: #8A2BE2;
-            --blue: #00BFFF;
-            --pink: #FF1493;
-            --neon: #39FF14;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
         
         body {
-            background: #0F0F1B;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* CABEÇALHO SIMPLES */
+        header {
+            background: #2563eb;
             color: white;
-            overflow-x: hidden;
-        }
-        
-        /* 🔥 HEADER VAPORWAVE */
-        .header {
-            background: linear-gradient(135deg, #0F0F1B 0%, #1A1A2E 100%);
             text-align: center;
-            padding: 4rem 1rem;
-            position: relative;
-            border-bottom: 3px solid var(--purple);
+            padding: 3rem 1rem;
         }
         
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(var(--blue), 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(var(--pink), 0.1) 0%, transparent 50%);
-            z-index: 0;
-        }
-        
-        .header-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(90deg, var(--blue), var(--pink), var(--neon));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-        }
-        
-        .price-tag {
-            background: linear-gradient(90deg, #FFD700, #FFA500);
-            color: black;
-            font-weight: 900;
+        h1 {
             font-size: 2.5rem;
-            padding: 0.5rem 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .destaque {
+            background: #ffd700;
+            color: #000;
+            font-weight: bold;
+            font-size: 2rem;
+            padding: 0.5rem 2rem;
             border-radius: 50px;
             display: inline-block;
-            margin: 1.5rem 0;
-            box-shadow: 
-                0 0 15px #FFD700,
-                0 0 30px rgba(255, 215, 0, 0.3);
-            animation: pulse 2s infinite;
+            margin: 1rem 0;
         }
         
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        /* 📱 MOCKUPS DE SITES */
-        .showcase {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 3rem auto;
-            flex-wrap: wrap;
-        }
-        
-        .device {
-            position: relative;
-            width: 300px;
-            perspective: 1000px;
-        }
-        
-        .device img {
-            width: 100%;
-            border-radius: 20px;
-            transition: transform 0.5s;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-        
-        .device:hover img {
-            transform: rotateY(10deg) scale(1.05);
-        }
-        
-        .device::after {
-            content: 'EXEMPLO DE SITE';
-            position: absolute;
-            bottom: -20px;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            color: var(--neon);
-            font-weight: bold;
-        }
-        
-        /* 🎯 CONTEÚDO PRINCIPAL */
+        /* CONTEÚDO */
         .container {
-            max-width: 1000px;
-            margin: 0 auto;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
             padding: 2rem;
-        }
-        
-        .how-it-works {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 3rem 0;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.5rem;
-            background: linear-gradient(90deg, var(--blue), var(--pink));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .steps {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-        
-        .step {
-            flex: 1;
-            min-width: 250px;
-            text-align: center;
-            padding: 2rem;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .step:hover {
-            transform: translateY(-10px);
-            background: rgba(var(--blue), 0.1);
-            box-shadow: 0 10px 20px rgba(0, 191, 255, 0.2);
-        }
-        
-        .step i {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(45deg, var(--blue), var(--pink));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .step h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--neon);
-        }
-        
-        /* 📞 CTA */
-        .cta {
-            text-align: center;
-            margin: 5rem 0;
-        }
-        
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-        }
-        
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.2rem 3rem;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            text-decoration: none;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .btn-whatsapp {
-            background: linear-gradient(45deg, #25D366, #128C7E);
-            color: white;
-        }
-        
-        .btn-telegram {
-            background: linear-gradient(45deg, #0088CC, #004E7C);
-            color: white;
-        }
-        
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-        }
-        
-        /* ❓ FAQ */
-        .faq {
-            margin: 5rem 0;
-        }
-        
-        .faq-item {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s;
-        }
-        
-        .faq-item:hover {
-            background: rgba(var(--pink), 0.1);
-        }
-        
-        .faq-item h3 {
-            color: var(--blue);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .faq-item h3 i {
-            color: var(--neon);
-        }
-        
-        /* 🦶 RODAPÉ GLASS */
-        .footer {
-            background: rgba(15, 15, 27, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 4rem 2rem;
-            border-top: 1px solid rgba(138, 43, 226, 0.3);
-            text-align: center;
-        }
-        
-        .footer-content {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .footer-logo {
-            font-size: 2.5rem;
-            font-weight: bold;
             margin-bottom: 2rem;
-            background: linear-gradient(90deg, var(--blue), var(--pink));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #2563eb;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .passo {
             display: flex;
-            justify-content: center;
             align-items: center;
-            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
         
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .social-link {
-            width: 50px;
-            height: 50px;
+        .numero {
+            background: #2563eb;
+            color: white;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.1);
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+        
+        /* BOTÕES */
+        .botoes {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .botao {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .telegram {
+            background: #0088CC;
+            color: white;
+        }
+        
+        .botao:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* RODAPÉ (como você gostou) */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .redes-sociais {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .rede-social {
             color: white;
             font-size: 1.5rem;
             transition: all 0.3s;
         }
         
-        .social-link:hover {
-            transform: translateY(-5px) scale(1.1);
-            background: var(--purple);
-            box-shadow: 0 5px 20px var(--purple);
+        .rede-social:hover {
+            transform: scale(1.2);
         }
         
-        .footer p {
-            margin-top: 2rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        /* 📱 RESPONSIVO */
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5rem;
-            }
-            
-            .price-tag {
+        @media (max-width: 600px) {
+            h1 {
                 font-size: 2rem;
-                padding: 0.5rem 2rem;
             }
             
-            .steps {
-                flex-direction: column;
+            .destaque {
+                font-size: 1.5rem;
             }
             
-            .buttons {
+            .botoes {
                 flex-direction: column;
                 align-items: center;
             }
@@ -350,109 +161,81 @@
     </style>
 </head>
 <body>
-    <!-- 🌈 HEADER VAPORWAVE -->
-    <header class="header">
-        <div class="header-content">
-            <h1>SEU SITE PROFISSIONAL</h1>
-            <div class="price-tag">R$30,00</div>
-            <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto;">
-                Você compra o domínio (~R$40/ano) e eu crio SEU SITE COMPLETO por apenas <strong>R$30</strong>!
-            </p>
-        </div>
+    <!-- CABEÇALHO LIMPO -->
+    <header>
+        <h1>Seu Site Profissional</h1>
+        <div class="destaque">Por Apenas R$30</div>
+        <p>Você compra o domínio (~R$40/ano) e eu crio o site!</p>
     </header>
     
-    <!-- 💻 MOCKUPS DE SITES -->
-    <div class="showcase">
-        <div class="device">
-            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Site em desktop">
-        </div>
-        <div class="device">
-            <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" alt="Site em mobile">
-        </div>
-    </div>
-    
-    <!-- 🛠️ COMO FUNCIONA -->
+    <!-- CONTEÚDO DIRETO -->
     <div class="container">
-        <div class="how-it-works">
-            <h2 class="section-title">COMO FUNCIONA?</h2>
-            <div class="steps">
-                <div class="step">
-                    <i class="fas fa-globe"></i>
-                    <h3>1. Você Compra o Domínio</h3>
-                    <p>Exemplo: seunegocio.com (R$40/ano em registros.br ou Hostinger)</p>
+        <div class="card">
+            <h2>Como Funciona?</h2>
+            
+            <div class="passo">
+                <div class="numero">1</div>
+                <div>
+                    <h3>Você Compra o Domínio</h3>
+                    <p>Exemplo: seunegocio.com (em sites como Registro.br)</p>
                 </div>
-                <div class="step">
-                    <i class="fas fa-money-bill-wave"></i>
-                    <h3>2. Me Paga R$30</h3>
-                    <p>Via PIX, PayPal ou transferência bancária</p>
+            </div>
+            
+            <div class="passo">
+                <div class="numero">2</div>
+                <div>
+                    <h3>Me Paga R$30</h3>
+                    <p>Via PIX, transferência ou PayPal</p>
                 </div>
-                <div class="step">
-                    <i class="fas fa-laptop-code"></i>
-                    <h3>3. Eu Crio Seu Site</h3>
-                    <p>Pronto em até 3 dias com design profissional!</p>
+            </div>
+            
+            <div class="passo">
+                <div class="numero">3</div>
+                <div>
+                    <h3>Eu Crio Seu Site</h3>
+                    <p>Pronto em até 3 dias úteis</p>
                 </div>
             </div>
         </div>
         
-        <!-- 📞 CTA -->
-        <div class="cta">
-            <h2>PRONTO PARA COMEÇAR?</h2>
-            <div class="buttons">
-                <a href="https://wa.me/5538998508385" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-                <a href="https://t.me/janiellnet" class="btn btn-telegram">
-                    <i class="fab fa-telegram"></i> Telegram
-                </a>
-            </div>
+        <!-- BOTÕES DE CONTATO -->
+        <div class="botoes">
+            <a href="https://wa.me/5538998508385" class="botao whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="https://t.me/janiellnet" class="botao telegram">
+                <i class="fab fa-telegram"></i> Telegram
+            </a>
         </div>
         
-        <!-- ❓ FAQ -->
-        <div class="faq">
-            <h2 class="section-title">PERGUNTAS FREQUENTES</h2>
-            <div class="faq-item">
-                <h3><i class="fas fa-question-circle"></i> O que está incluso nos R$30?</h3>
-                <p>✅ 1 Página profissional (home)<br>
-                ✅ Design moderno e responsivo<br>
-                ✅ Configuração básica do domínio<br>
-                ✅ Suporte por 7 dias após entrega</p>
-            </div>
-            <div class="faq-item">
-                <h3><i class="fas fa-dollar-sign"></i> Tem mensalidade?</h3>
-                <p>NÃO! Você só paga:<br>
-                - R$30 uma única vez pelo site<br>
-                - R$40/ano pelo domínio (pago diretamente ao registrar)</p>
-            </div>
-            <div class="faq-item">
-                <h3><i class="fas fa-clock"></i> Quanto tempo leva?</h3>
-                <p>Seu site fica pronto em até 3 dias úteis após confirmação do pagamento.</p>
-            </div>
+        <!-- INFORMAÇÕES -->
+        <div class="card">
+            <h2>O Que Você Recebe</h2>
+            <ul style="list-style-position: inside; line-height: 2;">
+                <li>Site profissional de 1 página</li>
+                <li>Design moderno e responsivo</li>
+                <li>Configuração básica do domínio</li>
+                <li>Suporte por 7 dias após entrega</li>
+                <li><strong>Sem mensalidades!</strong> (só paga o domínio anual)</li>
+            </ul>
         </div>
     </div>
     
-    <!-- 🦶 RODAPÉ -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <i class="fas fa-rocket"></i>
-                <span>JaniellNET</span>
-            </div>
-            <p style="font-size: 1.2rem; margin-bottom: 1rem;">Criação de sites profissionais por apenas R$30!</p>
-            
-            <div class="social-links">
-                <a href="https://wa.me/5538998508385" class="social-link">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="https://t.me/janiellnet" class="social-link">
-                    <i class="fab fa-telegram"></i>
-                </a>
-                <a href="https://instagram.com/janiel_sw7_" class="social-link">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </div>
-            
-            <p>© 2023 JaniellNET - (38) 99850-8385</p>
+    <!-- RODAPÉ (como você gostou) -->
+    <footer>
+        <p>Entre em contato:</p>
+        <div class="redes-sociais">
+            <a href="https://wa.me/5538998508385" class="rede-social">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://t.me/janiellnet" class="rede-social">
+                <i class="fab fa-telegram"></i>
+            </a>
+            <a href="https://instagram.com/janiel_sw7_" class="rede-social">
+                <i class="fab fa-instagram"></i>
+            </a>
         </div>
+        <p>© 2023 - (38) 99850-8385</p>
     </footer>
 </body>
 </html>
