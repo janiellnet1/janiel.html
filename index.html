@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criação de Sites por R$30 | Domínio + R$30 = Site Pronto</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --azul: #2563eb;
@@ -12,13 +13,15 @@
             --destaque: #ffd700;
             --cinza: #6b7280;
             --fundo: #f8f9fa;
+            --fonte-principal: 'Poppins', sans-serif;
+            --fonte-secundaria: 'Arial', sans-serif;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: var(--fonte-principal);
         }
         
         body {
@@ -59,6 +62,7 @@
         h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
+            font-weight: 700;
         }
         
         .destaque {
@@ -71,6 +75,7 @@
             display: inline-block;
             margin: 1rem 0;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            font-family: var(--fonte-secundaria);
         }
         
         /* CONTEÚDO */
@@ -94,11 +99,13 @@
             margin-bottom: 2rem;
             text-align: center;
             font-size: 2rem;
+            font-weight: 700;
         }
         
         h3 {
             color: var(--azul-escuro);
             margin-bottom: 0.5rem;
+            font-weight: 600;
         }
         
         /* PASSOS */
@@ -193,6 +200,7 @@
             left: 0;
             width: 100%;
             color: white;
+            font-family: var(--fonte-secundaria);
         }
         
         .whatsapp {
@@ -216,34 +224,7 @@
             font-weight: bold;
             color: var(--azul);
             margin: 1rem 0;
-        }
-        
-        /* ANTES/DEPOIS */
-        .comparacao {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-        
-        .comparacao-item {
-            text-align: center;
-            flex: 1;
-            min-width: 200px;
-        }
-        
-        .comparacao-titulo {
-            padding: 0.5rem;
-            border-radius: 5px 5px 0 0;
-            color: white;
-            font-weight: bold;
-        }
-        
-        .comparacao-conteudo {
-            padding: 1rem;
-            border-radius: 0 0 5px 5px;
-            background: #f1faee;
+            font-family: var(--fonte-secundaria);
         }
         
         /* DEPOIMENTOS */
@@ -284,6 +265,31 @@
         
         .depoimento-estrelas {
             color: var(--destaque);
+        }
+        
+        /* PROCESSO PROFISSIONAL */
+        .processo {
+            margin: 3rem 0;
+        }
+        
+        .etapa {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+        
+        .etapa-numero {
+            background: var(--azul);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            font-weight: bold;
         }
         
         /* RODAPÉ */
@@ -393,111 +399,93 @@
             </div>
         </div>
         
+        <!-- PROCESSO PROFISSIONAL -->
+        <div class="card">
+            <h2>Meu Processo de Trabalho</h2>
+            <div class="processo">
+                <div class="etapa">
+                    <div class="etapa-numero">1</div>
+                    <div>
+                        <h3>Briefing Detalhado</h3>
+                        <p>Entendimento completo das suas necessidades e objetivos através de um questionário estruturado.</p>
+                    </div>
+                </div>
+                <div class="etapa">
+                    <div class="etapa-numero">2</div>
+                    <div>
+                        <h3>Proposta Personalizada</h3>
+                        <p>Desenvolvimento de um conceito único alinhado com sua identidade.</p>
+                    </div>
+                </div>
+                <div class="etapa">
+                    <div class="etapa-numero">3</div>
+                    <div>
+                        <h3>Desenvolvimento Ágil</h3>
+                        <p>Código limpo e otimizado seguindo as melhores práticas do mercado.</p>
+                    </div>
+                </div>
+                <div class="etapa">
+                    <div class="etapa-numero">4</div>
+                    <div>
+                        <h3>Entrega com Excelência</h3>
+                        <p>Revisões finais e treinamento para gerenciamento do conteúdo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <!-- BENEFÍCIOS -->
         <div class="card">
-            <h2>O Que Você Recebe</h2>
+            <h2>Vantagens Exclusivas</h2>
             <div class="beneficios">
                 <div class="beneficio">
                     <i class="fas fa-check"></i>
                     <div>
-                        <h3>Site Profissional</h3>
-                        <p>1 página inicial com design moderno</p>
+                        <h3>Design Sob Medida</h3>
+                        <p>Criado exclusivamente para seu negócio sem templates genéricos</p>
                     </div>
                 </div>
                 <div class="beneficio">
                     <i class="fas fa-check"></i>
                     <div>
-                        <h3>Totalmente Responsivo</h3>
-                        <p>Perfeito em celulares e computadores</p>
+                        <h3>Tecnologia Moderna</h3>
+                        <p>HTML5, CSS3 e JavaScript otimizados para performance</p>
                     </div>
                 </div>
                 <div class="beneficio">
                     <i class="fas fa-check"></i>
                     <div>
-                        <h3>Configuração Incluída</h3>
-                        <p>Ajuda com DNS e hospedagem básica</p>
+                        <h3>Otimização Básica SEO</h3>
+                        <p>Configurações essenciais para melhorar seu ranking no Google</p>
                     </div>
                 </div>
                 <div class="beneficio">
                     <i class="fas fa-check"></i>
                     <div>
-                        <h3>Sem Mensalidades</h3>
-                        <p>Só paga o domínio anual (~R$40/ano)</p>
+                        <h3>Hospedagem Inclusa</h3>
+                        <p>Servidor básico gratuito por 6 meses</p>
                     </div>
                 </div>
                 <div class="beneficio">
                     <i class="fas fa-check"></i>
                     <div>
-                        <h3>Suporte 7 Dias</h3>
-                        <p>Ajustes gratuitos após a entrega</p>
+                        <h3>Certificado SSL</h3>
+                        <p>Site seguro com protocolo HTTPS incluído</p>
                     </div>
                 </div>
                 <div class="beneficio">
                     <i class="fas fa-check"></i>
                     <div>
-                        <h3>Entrega Rápida</h3>
-                        <p>Pronto em até 3 dias úteis</p>
+                        <h3>Suporte Prioritário</h3>
+                        <p>Atendimento rápido via WhatsApp para clientes</p>
                     </div>
                 </div>
-            </div>
-            
-            <!-- SELO DE GARANTIA -->
-            <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: rgba(37, 99, 235, 0.1); border-radius: 10px;">
-                <i class="fas fa-shield-alt" style="font-size: 2.5rem; color: var(--azul); margin-bottom: 1rem;"></i>
-                <h3 style="color: var(--azul-escuro);">Garantia de Satisfação</h3>
-                <p>Se não gostar do resultado em 7 dias, devolvo seu dinheiro!</p>
-            </div>
-        </div>
-        
-        <!-- ANTES/DEPOIS -->
-        <div class="card">
-            <h2>Veja a Diferença</h2>
-            <div class="comparacao">
-                <div class="comparacao-item">
-                    <div class="comparacao-titulo" style="background: #e63946;">ANTES</div>
-                    <div class="comparacao-conteudo">
-                        <i class="fas fa-times" style="color: #e63946; font-size: 3rem;"></i>
-                        <p style="margin-top: 0.5rem;">Sem site ou site desatualizado</p>
-                    </div>
-                </div>
-                <div class="comparacao-item">
-                    <div class="comparacao-titulo" style="background: #2a9d8f;">DEPOIS</div>
-                    <div class="comparacao-conteudo">
-                        <i class="fas fa-check" style="color: #2a9d8f; font-size: 3rem;"></i>
-                        <p style="margin-top: 0.5rem;">Site profissional por apenas R$30</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- PERGUNTAS -->
-        <div class="card">
-            <h2>Perguntas Frequentes</h2>
-            <div class="pergunta">
-                <h3>Preciso saber de tecnologia?</h3>
-                <p>Não! Eu explico tudo passo a passo. Você só precisa comprar o domínio (te ensino como).</p>
-            </div>
-            <div class="pergunta">
-                <h3>Posso ter mais de uma página?</h3>
-                <p>Sim! Páginas extras custam R$15 cada (como "sobre", "contato", etc.).</p>
-            </div>
-            <div class="pergunta">
-                <h3>E se eu não gostar do design?</h3>
-                <p>Fazemos até 2 revisões gratuitas para ajustar ao seu gosto.</p>
-            </div>
-            <div class="pergunta">
-                <h3>Preciso contratar hospedagem?</h3>
-                <p>Não! Incluo hospedagem básica gratuita por 1 ano. Depois, custa apenas R$10/mês se quiser continuar.</p>
-            </div>
-            <div class="pergunta">
-                <h3>Posso atualizar o site depois?</h3>
-                <p>Sim! Atualizações custam R$15 cada (ou pacote mensal por R$30 para até 4 atualizações).</p>
             </div>
         </div>
         
         <!-- DEPOIMENTOS -->
         <div class="card">
-            <h2>O que dizem meus clientes</h2>
+            <h2>Clientes Satisfeitos</h2>
             <div class="depoimentos-container">
                 <div class="depoimento">
                     <div class="depoimento-cabecalho">
@@ -509,7 +497,7 @@
                             </div>
                         </div>
                     </div>
-                    <p>"Site ficou perfeito para meu negócio! Fizemos em 2 dias e já recebi clientes novos."</p>
+                    <p>"Transformou completamente minha presença online. O site gerou 3x mais clientes no primeiro mês!"</p>
                 </div>
                 <div class="depoimento">
                     <div class="depoimento-cabecalho">
@@ -521,33 +509,41 @@
                             </div>
                         </div>
                     </div>
-                    <p>"Não sabia nada de tecnologia e o Janiel explicou tudo. Site lindo e barato!"</p>
+                    <p>"Profissionalismo impressionante. Explicou tudo de forma simples e entregou antes do prazo!"</p>
                 </div>
             </div>
         </div>
         
-        <!-- BARRA DE CONFIANÇA -->
-        <div style="text-align: center; margin: 2rem auto;">
-            <p style="color: var(--cinza); margin-bottom: 1rem;">⏤ Já ajudei +50 clientes ⏤</p>
-            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-                <span style="background: white; padding: 0.5rem 1.5rem; border-radius: 50px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-                    <i class="fas fa-check" style="color: var(--azul);"></i> Sites Rápidos
-                </span>
-                <span style="background: white; padding: 0.5rem 1.5rem; border-radius: 50px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-                    <i class="fas fa-check" style="color: var(--azul);"></i> Suporte Direto
-                </span>
+        <!-- PERGUNTAS -->
+        <div class="card">
+            <h2>Dúvidas Comuns</h2>
+            <div class="pergunta">
+                <h3>Quanto tempo leva para o site ficar pronto?</h3>
+                <p>Normalmente entre 2-3 dias úteis após a aprovação do conteúdo.</p>
+            </div>
+            <div class="pergunta">
+                <h3>Posso adicionar mais páginas depois?</h3>
+                <p>Sim! Cada página adicional custa R$15 (preço especial para clientes).</p>
+            </div>
+            <div class="pergunta">
+                <h3>Você ensina como atualizar o conteúdo?</h3>
+                <p>Sim, forneço um manual simples e 30 minutos de treinamento via chamada.</p>
+            </div>
+            <div class="pergunta">
+                <h3>O site funciona bem em celulares?</h3>
+                <p>Totalmente responsivo e testado em todos os dispositivos.</p>
             </div>
         </div>
         
         <!-- CHAMADA PARA AÇÃO -->
         <div class="botoes">
             <a href="https://wa.me/5538998508385" class="botao whatsapp">
-                <i class="fab fa-whatsapp"></i> Quero Meu Site
-                <small>✅ 7 dias de garantia</small>
+                <i class="fab fa-whatsapp"></i> Solicitar Orçamento
+                <small>✉️ Resposta em até 1h</small>
             </a>
             <a href="https://t.me/janiellnet" class="botao telegram">
-                <i class="fab fa-telegram"></i> Falar no Telegram
-                <small>🕒 Resposta em 5min</small>
+                <i class="fab fa-telegram"></i> Conversar no Telegram
+                <small>🕒 Atendimento Personalizado</small>
             </a>
         </div>
     </div>
@@ -567,7 +563,7 @@
                 <i class="fab fa-instagram"></i>
             </a>
         </div>
-        <p style="margin-top: 2rem;">© 2023 - (38) 99850-8385</p>
+        <p style="margin-top: 2rem;">© 2023 - Todos os direitos reservados</p>
     </footer>
     
     <!-- WHATSAPP FLUTUANTE -->
