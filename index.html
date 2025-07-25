@@ -181,6 +181,18 @@
             font-weight: bold;
             transition: all 0.3s;
             text-align: center;
+            position: relative;
+        }
+        
+        .botao small {
+            font-weight: normal;
+            display: block;
+            font-size: 0.8rem;
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 100%;
+            color: white;
         }
         
         .whatsapp {
@@ -196,6 +208,82 @@
         .botao:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* TIMER */
+        #timer {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--azul);
+            margin: 1rem 0;
+        }
+        
+        /* ANTES/DEPOIS */
+        .comparacao {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .comparacao-item {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .comparacao-titulo {
+            padding: 0.5rem;
+            border-radius: 5px 5px 0 0;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .comparacao-conteudo {
+            padding: 1rem;
+            border-radius: 0 0 5px 5px;
+            background: #f1faee;
+        }
+        
+        /* DEPOIMENTOS */
+        .depoimentos-container {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 1rem 0;
+            scrollbar-width: none;
+        }
+        
+        .depoimento {
+            min-width: 300px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .depoimento-cabecalho {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .depoimento-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--azul);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .depoimento-estrelas {
+            color: var(--destaque);
         }
         
         /* RODAPÉ */
@@ -222,6 +310,31 @@
         
         .rede-social:hover {
             transform: scale(1.2);
+        }
+        
+        /* WHATSAPP FLUTUANTE */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
         
         @media (max-width: 768px) {
@@ -251,6 +364,13 @@
     
     <!-- CONTEÚDO PRINCIPAL -->
     <div class="container">
+        <!-- TIMER DE OFERTA -->
+        <div class="card" style="text-align: center;">
+            <h3 style="color: #e63946;">⏰ OFERTA POR TEMPO LIMITADO!</h3>
+            <div id="timer">05:00:00</div>
+            <p>Preço especial só para os primeiros 10 clientes!</p>
+        </div>
+        
         <!-- COMO FUNCIONA -->
         <div class="card">
             <h2>Como Funciona?</h2>
@@ -320,6 +440,34 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- SELO DE GARANTIA -->
+            <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: rgba(37, 99, 235, 0.1); border-radius: 10px;">
+                <i class="fas fa-shield-alt" style="font-size: 2.5rem; color: var(--azul); margin-bottom: 1rem;"></i>
+                <h3 style="color: var(--azul-escuro);">Garantia de Satisfação</h3>
+                <p>Se não gostar do resultado em 7 dias, devolvo seu dinheiro!</p>
+            </div>
+        </div>
+        
+        <!-- ANTES/DEPOIS -->
+        <div class="card">
+            <h2>Veja a Diferença</h2>
+            <div class="comparacao">
+                <div class="comparacao-item">
+                    <div class="comparacao-titulo" style="background: #e63946;">ANTES</div>
+                    <div class="comparacao-conteudo">
+                        <i class="fas fa-times" style="color: #e63946; font-size: 3rem;"></i>
+                        <p style="margin-top: 0.5rem;">Sem site ou site desatualizado</p>
+                    </div>
+                </div>
+                <div class="comparacao-item">
+                    <div class="comparacao-titulo" style="background: #2a9d8f;">DEPOIS</div>
+                    <div class="comparacao-conteudo">
+                        <i class="fas fa-check" style="color: #2a9d8f; font-size: 3rem;"></i>
+                        <p style="margin-top: 0.5rem;">Site profissional por apenas R$30</p>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <!-- PERGUNTAS -->
@@ -337,15 +485,69 @@
                 <h3>E se eu não gostar do design?</h3>
                 <p>Fazemos até 2 revisões gratuitas para ajustar ao seu gosto.</p>
             </div>
+            <div class="pergunta">
+                <h3>Preciso contratar hospedagem?</h3>
+                <p>Não! Incluo hospedagem básica gratuita por 1 ano. Depois, custa apenas R$10/mês se quiser continuar.</p>
+            </div>
+            <div class="pergunta">
+                <h3>Posso atualizar o site depois?</h3>
+                <p>Sim! Atualizações custam R$15 cada (ou pacote mensal por R$30 para até 4 atualizações).</p>
+            </div>
+        </div>
+        
+        <!-- DEPOIMENTOS -->
+        <div class="card">
+            <h2>O que dizem meus clientes</h2>
+            <div class="depoimentos-container">
+                <div class="depoimento">
+                    <div class="depoimento-cabecalho">
+                        <div class="depoimento-avatar">JL</div>
+                        <div>
+                            <h4 style="color: var(--azul-escuro);">João L.</h4>
+                            <div class="depoimento-estrelas">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Site ficou perfeito para meu negócio! Fizemos em 2 dias e já recebi clientes novos."</p>
+                </div>
+                <div class="depoimento">
+                    <div class="depoimento-cabecalho">
+                        <div class="depoimento-avatar">AS</div>
+                        <div>
+                            <h4 style="color: var(--azul-escuro);">Ana S.</h4>
+                            <div class="depoimento-estrelas">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Não sabia nada de tecnologia e o Janiel explicou tudo. Site lindo e barato!"</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- BARRA DE CONFIANÇA -->
+        <div style="text-align: center; margin: 2rem auto;">
+            <p style="color: var(--cinza); margin-bottom: 1rem;">⏤ Já ajudei +50 clientes ⏤</p>
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <span style="background: white; padding: 0.5rem 1.5rem; border-radius: 50px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                    <i class="fas fa-check" style="color: var(--azul);"></i> Sites Rápidos
+                </span>
+                <span style="background: white; padding: 0.5rem 1.5rem; border-radius: 50px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                    <i class="fas fa-check" style="color: var(--azul);"></i> Suporte Direto
+                </span>
+            </div>
         </div>
         
         <!-- CHAMADA PARA AÇÃO -->
         <div class="botoes">
             <a href="https://wa.me/5538998508385" class="botao whatsapp">
                 <i class="fab fa-whatsapp"></i> Quero Meu Site
+                <small>✅ 7 dias de garantia</small>
             </a>
             <a href="https://t.me/janiellnet" class="botao telegram">
                 <i class="fab fa-telegram"></i> Falar no Telegram
+                <small>🕒 Resposta em 5min</small>
             </a>
         </div>
     </div>
@@ -367,5 +569,24 @@
         </div>
         <p style="margin-top: 2rem;">© 2023 - (38) 99850-8385</p>
     </footer>
+    
+    <!-- WHATSAPP FLUTUANTE -->
+    <a href="https://wa.me/5538998508385" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- TIMER SCRIPT -->
+    <script>
+        // Timer de 5 horas
+        let time = 5 * 60 * 60;
+        const timer = setInterval(() => {
+            const hours = Math.floor(time / 3600).toString().padStart(2, '0');
+            const minutes = Math.floor((time % 3600) / 60).toString().padStart(2, '0');
+            const seconds = (time % 60).toString().padStart(2, '0');
+            document.getElementById('timer').textContent = `${hours}:${minutes}:${seconds}`;
+            time--;
+            if (time < 0) clearInterval(timer);
+        }, 1000);
+    </script>
 </body>
 </html>
