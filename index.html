@@ -3,1422 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JaniellNet VPN - Sua Segurança Digital</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>JaniellNet - Criação de Sites Profissionais</title>
     <style>
-        /* Reset e configurações básicas */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --primary-color: #dc2626;
-    --secondary-color: #991b1b;
-    --accent-color: #ef4444;
-    --bg-dark: #0a0a0a;
-    --bg-darker: #000000;
-    --text-light: #ffffff;
-    --text-gray: #a1a1aa;
-    --border-color: #262626;
-    --gradient-primary: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
-    --gradient-dark: linear-gradient(135deg, #0a0a0a 0%, #000000 100%);
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-light);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Header */
-.header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.navbar {
-    padding: 1rem 0;
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-logo h2 {
-    color: var(--primary-color);
-    font-weight: 700;
-    font-size: 1.5rem;
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-link {
-    color: var(--text-light);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    position: relative;
-}
-
-.nav-link:hover {
-    color: var(--primary-color);
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--gradient-primary);
-    transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-    width: 100%;
-}
-
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.bar {
-    width: 25px;
-    height: 3px;
-    background-color: var(--text-light);
-    margin: 3px 0;
-    transition: 0.3s;
-}
-
-/* Hero Section */
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    background: var(--gradient-dark);
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(220, 38, 38, 0.1) 0%, transparent 50%);
-}
-
-.hero-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-}
-
-.hero-title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-}
-
-.highlight {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.hero-description {
-    font-size: 1.2rem;
-    color: var(--text-gray);
-    margin-bottom: 2rem;
-    line-height: 1.6;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.btn {
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-    cursor: pointer;
-    display: inline-block;
-    text-align: center;
-}
-
-.btn-primary {
-    background: var(--gradient-primary);
-    color: white;
-    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(220, 38, 38, 0.4);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: var(--text-light);
-    border: 2px solid var(--border-color);
-}
-
-.btn-secondary:hover {
-    border-color: var(--primary-color);
-    color: var(--primary-color);
-}
-
-.btn-outline {
-    background: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-}
-
-.btn-outline:hover {
-    background: var(--primary-color);
-    color: white;
-}
-
-.hero-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-/* Features Section */
-.features {
-    padding: 6rem 0;
-    background: var(--bg-darker);
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 3rem;
-    color: var(--text-light);
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.feature-card {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 2rem;
-    border-radius: 16px;
-    text-align: center;
-    border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary-color);
-    box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
-}
-
-.feature-icon {
-    width: 80px;
-    height: 80px;
-    background: var(--gradient-primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.5rem;
-    font-size: 2rem;
-    color: white;
-}
-
-.feature-card h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--text-light);
-}
-
-.feature-card p {
-    color: var(--text-gray);
-    line-height: 1.6;
-}
-
-/* Services Section */
-.services {
-    padding: 6rem 0;
-    background: var(--bg-dark);
-}
-
-.plans-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.plan-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 2rem;
-    text-align: center;
-    position: relative;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-}
-
-.plan-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary-color);
-}
-
-.plan-card.featured {
-    border-color: var(--primary-color);
-    box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2);
-}
-
-.plan-badge {
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--gradient-primary);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.plan-header h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--text-light);
-}
-
-.price {
-    margin-bottom: 2rem;
-}
-
-.currency {
-    font-size: 1.2rem;
-    color: var(--text-gray);
-}
-
-.amount {
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--primary-color);
-}
-
-.period {
-    font-size: 1rem;
-    color: var(--text-gray);
-}
-
-.plan-features {
-    list-style: none;
-    margin-bottom: 2rem;
-}
-
-.plan-features li {
-    padding: 0.5rem 0;
-    color: var(--text-gray);
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.plan-features i {
-    color: var(--primary-color);
-    margin-right: 0.5rem;
-}
-
-/* About Section */
-.about {
-    padding: 6rem 0;
-    background: var(--bg-darker);
-}
-
-.about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-}
-
-.about-text p {
-    color: var(--text-gray);
-    margin-bottom: 1.5rem;
-    line-height: 1.8;
-}
-
-.stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.stat {
-    text-align: center;
-}
-
-.stat h3 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-
-.stat p {
-    color: var(--text-gray);
-    font-weight: 500;
-}
-
-.about-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-/* Contact Section */
-.contact {
-    padding: 6rem 0;
-    background: var(--bg-dark);
-}
-
-.contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    margin-top: 3rem;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.contact-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--gradient-primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 1rem;
-    font-size: 1.5rem;
-    color: white;
-}
-
-.contact-details h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--text-light);
-}
-
-.contact-details p {
-    color: var(--text-gray);
-}
-
-.contact-form {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 2rem;
-    border-radius: 16px;
-    border: 1px solid var(--border-color);
-    backdrop-filter: blur(10px);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    color: var(--text-light);
-    font-family: inherit;
-    transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: var(--text-gray);
-}
-
-/* Footer */
-.footer {
-    background: var(--bg-darker);
-    padding: 3rem 0 1rem;
-    border-top: 1px solid var(--border-color);
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-section h3,
-.footer-section h4 {
-    color: var(--text-light);
-    margin-bottom: 1rem;
-}
-
-.footer-section p,
-.footer-section li {
-    color: var(--text-gray);
-    margin-bottom: 0.5rem;
-}
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section a {
-    color: var(--text-gray);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section a:hover {
-    color: var(--primary-color);
-}
-
-.social-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.social-links a {
-    width: 40px;
-    height: 40px;
-    background: var(--gradient-primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    transition: transform 0.3s ease;
-}
-
-.social-links a:hover {
-    transform: translateY(-2px);
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border-color);
-    color: var(--text-gray);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background-color: var(--bg-dark);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        padding: 2rem 0;
-    }
-
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
-    .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
-    }
-
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .about-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .contact-content {
-        grid-template-columns: 1fr;
-    }
-
-    .stats {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .plans-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Animações */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.hero-content,
-.feature-card,
-.plan-card {
-    animation: fadeInUp 0.6s ease-out;
-}
-
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Scrollbar personalizada */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--bg-dark);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--secondary-color);
-}
-
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 10px 30px;
+            margin: 20px 0;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .pricing {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .price-card {
+            background: white;
+            border-radius: 10px;
+            width: 300px;
+            padding: 30px;
+            margin: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .price-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .price-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #6e48aa;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #333;
+        }
+        
+        .price-card ul {
+            list-style: none;
+            margin: 30px 0;
+        }
+        
+        .price-card ul li {
+            margin: 15px 0;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+        
+        .contact-info {
+            margin-top: 20px;
+        }
+        
+        .contact-info a {
+            color: #9d50bb;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            .pricing {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <h2>JaniellNet VPN</h2>
-                </div>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="#home" class="nav-link">Início</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#services" class="nav-link">Serviços</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link">Sobre</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contact" class="nav-link">Contato</a>
-                    </li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </div>
-        </nav>
+    <header>
+        <div class="container">
+            <h1>Criação de Sites Profissionais</h1>
+            <p>Sua presença online com design moderno e alta performance</p>
+            <a href="#contact" class="cta-button">Fale Conosco</a>
+        </div>
     </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    Proteja sua <span class="highlight">Privacidade</span> Online
-                </h1>
-                <p class="hero-description">
-                    Navegue com segurança e anonimato total. JaniellNet VPN oferece a melhor proteção para seus dados pessoais e empresariais.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Contratar Agora</a>
-                    <a href="#services" class="btn btn-secondary">Saiba Mais</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEBLAEsAAD/4QBWRXhpZgAATU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAAITAAMAAAABAAEAAAAAAAAAAAEsAAAAAQAAASwAAAAB/+0ALFBob3Rvc2hvcCAzLjAAOEJJTQQEAAAAAAAPHAFaAAMbJUccAQAAAgAEAP/hDW9odHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvADw/eHBhY2tldCBiZWdpbj0n77u/JyBpZD0nVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkJz8+Cjx4OnhtcG1ldGEgeG1sbnM6eD0nYWRvYmU6bnM6bWV0YS8nIHg6eG1wdGs9J0ltYWdlOjpFeGlmVG9vbCAxMS44OCc+CjxyZGY6UkRGIHhtbG5zOnJkZj0naHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyc+CgogPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9JycKICB4bWxuczp0aWZmPSdodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyc+CiAgPHRpZmY6UmVzb2x1dGlvblVuaXQ+MjwvdGlmZjpSZXNvbHV0aW9uVW5pdD4KICA8dGlmZjpYUmVzb2x1dGlvbj4zMDAvMTwvdGlmZjpYUmVzb2x1dGlvbj4KICA8dGlmZjpZUmVzb2x1dGlvbj4zMDAvMTwvdGlmZjpZUmVzb2x1dGlvbj4KIDwvcmRmOkRlc2NyaXB0aW9uPgoKIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PScnCiAgeG1sbnM6eG1wPSdodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvJz4KICA8eG1wOkNyZWF0b3JUb29sPkFkb2JlIFN0b2NrIFBsYXRmb3JtPC94bXA6Q3JlYXRvclRvb2w+CiA8L3JkZjpEZXNjcmlwdGlvbj4KCiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0nJwogIHhtbG5zOnhtcE1NPSdodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vJz4KICA8eG1wTU06RG9jdW1lbnRJRD54bXAuaWlkOmJmYTU1M2U2LWY4OWMtNDNjYy04MzI0LWRhZGI2OTVhMTFjZDwveG1wTU06RG9jdW1lbnRJRD4KICA8eG1wTU06SW5zdGFuY2VJRD5hZG9iZTpkb2NpZDpzdG9jazpmNmYwODM1OS0zMDZkLTQ2ZDEtYmQyNC00ZTU0NTE1YzFkZjI8L3htcE1NOkluc3RhbmNlSUQ+CiAgPHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD5hZG9iZTpkb2NpZDpzdG9jazoxMTA4MDkxMTM0PC94bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ+CiA8L3JkZjpEZXNjcmlwdGlvbj4KPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAog" alt="VPN Security" class="hero-img">
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="features">
+    
+    <section id="services">
         <div class="container">
-            <h2 class="section-title">Por que escolher JaniellNet VPN?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Segurança Máxima</h3>
-                    <p>Criptografia militar AES-256 para proteger todos os seus dados e comunicações online.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>Servidores Globais</h3>
-                    <p>Acesse conteúdo de qualquer lugar do mundo com nossa rede de servidores em mais de 50 países.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Velocidade Ultra</h3>
-                    <p>Navegue, faça streaming e download sem limitações com nossa tecnologia de alta velocidade.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-secret"></i>
-                    </div>
-                    <h3>Zero Logs</h3>
-                    <p>Política rigorosa de não armazenamento de logs. Sua privacidade é nossa prioridade.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Multi-Dispositivos</h3>
-                    <p>Proteja todos os seus dispositivos: Windows, Mac, iOS, Android e muito mais.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>Suporte 24/7</h3>
-                    <p>Nossa equipe está sempre disponível para ajudar você quando precisar.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title">Nossos Planos</h2>
-            <div class="plans-grid">
-                <div class="plan-card">
-                    <div class="plan-header">
-                        <h3>Básico</h3>
-                    </div>
-                    <div class="price">
-                        <span class="currency">R$</span>
-                        <span class="amount">19</span>
-                        <span class="period">/mês</span>
-                    </div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> 1 dispositivo</li>
-                        <li><i class="fas fa-check"></i> 10 localizações</li>
-                        <li><i class="fas fa-check"></i> Velocidade padrão</li>
-                        <li><i class="fas fa-check"></i> Suporte por email</li>
+            <h2 style="text-align: center;">Nossos Serviços</h2>
+            <div class="pricing">
+                <div class="price-card">
+                    <h3>Site Básico</h3>
+                    <div class="price">R$ X</div>
+                    <ul>
+                        <li>1 Página Principal</li>
+                        <li>Design Responsivo</li>
+                        <li>Formulário de Contato</li>
+                        <li>Otimização Básica SEO</li>
+                        <li>Suporte por 1 mês</li>
                     </ul>
-                    <a href="#contact" class="btn btn-outline">Escolher Plano</a>
+                    <a href="#contact" class="cta-button">Quero este</a>
                 </div>
                 
-                <div class="plan-card featured">
-                    <div class="plan-badge">Mais Popular</div>
-                    <div class="plan-header">
-                        <h3>Premium</h3>
-                    </div>
-                    <div class="price">
-                        <span class="currency">R$</span>
-                        <span class="amount">39</span>
-                        <span class="period">/mês</span>
-                    </div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> 5 dispositivos</li>
-                        <li><i class="fas fa-check"></i> 50+ localizações</li>
-                        <li><i class="fas fa-check"></i> Velocidade alta</li>
-                        <li><i class="fas fa-check"></i> Suporte 24/7</li>
-                        <li><i class="fas fa-check"></i> Kill Switch</li>
+                <div class="price-card">
+                    <h3>Site Intermediário</h3>
+                    <div class="price">R$ X</div>
+                    <ul>
+                        <li>Até 5 Páginas</li>
+                        <li>Design Personalizado</li>
+                        <li>Blog Integrado</li>
+                        <li>Otimização SEO</li>
+                        <li>Suporte por 3 meses</li>
                     </ul>
-                    <a href="#contact" class="btn btn-primary">Escolher Plano</a>
+                    <a href="#contact" class="cta-button">Quero este</a>
                 </div>
                 
-                <div class="plan-card">
-                    <div class="plan-header">
-                        <h3>Empresarial</h3>
-                    </div>
-                    <div class="price">
-                        <span class="currency">R$</span>
-                        <span class="amount">79</span>
-                        <span class="period">/mês</span>
-                    </div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-check"></i> Dispositivos ilimitados</li>
-                        <li><i class="fas fa-check"></i> Todas as localizações</li>
-                        <li><i class="fas fa-check"></i> Velocidade máxima</li>
-                        <li><i class="fas fa-check"></i> Suporte prioritário</li>
-                        <li><i class="fas fa-check"></i> IP dedicado</li>
+                <div class="price-card">
+                    <h3>Site Avançado</h3>
+                    <div class="price">R$ X</div>
+                    <ul>
+                        <li>Páginas Ilimitadas</li>
+                        <li>Design Premium</li>
+                        <li>E-commerce Básico</li>
+                        <li>SEO Avançado</li>
+                        <li>Suporte por 6 meses</li>
                     </ul>
-                    <a href="#contact" class="btn btn-outline">Escolher Plano</a>
+                    <a href="#contact" class="cta-button">Quero este</a>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
+    
+    <section id="contact">
         <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 class="section-title" style="text-align: left;">Sobre a JaniellNet</h2>
-                    <p>
-                        A JaniellNet é uma empresa especializada em soluções de segurança digital, oferecendo serviços VPN de alta qualidade para proteger sua privacidade online.
-                    </p>
-                    <p>
-                        Com anos de experiência no mercado de tecnologia, nossa missão é garantir que você navegue na internet com total segurança e liberdade, sem se preocupar com ameaças digitais ou restrições geográficas.
-                    </p>
-                    <p>
-                        Nossos servidores são constantemente atualizados e monitorados para oferecer a melhor experiência possível aos nossos clientes.
-                    </p>
-                    <div class="stats">
-                        <div class="stat">
-                            <h3>50+</h3>
-                            <p>Países</p>
-                        </div>
-                        <div class="stat">
-                            <h3>1000+</h3>
-                            <p>Clientes</p>
-                        </div>
-                        <div class="stat">
-                            <h3>99.9%</h3>
-                            <p>Uptime</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEBLAEsAAD/4QBWRXhpZgAATU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAAITAAMAAAABAAEAAAAAAAAAAAEsAAAAAQAAASwAAAAB/+0ALFBob3Rvc2hvcCAzLjAAOEJJTQQEAAAAAAAPHAFaAAMbJUccAQAAAgAEAP/hDW5odHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvADw/eHBhY2tldCBiZWdpbj0n77u/JyBpZD0nVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkJz8+Cjx4OnhtcG1ldGEgeG1sbnM6eD0nYWRvYmU6bnM6bWV0YS8nIHg6eG1wdGs9J0ltYWdlOjpFeGlmVG9vbCAxMS44OCc+CjxyZGY6UkRGIHhtbG5zOnJkZj0naHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyc+CgogPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9JycKICB4bWxuczp0aWZmPSdodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyc+CiAgPHRpZmY6UmVzb2x1dGlvblVuaXQ+MjwvdGlmZjpSZXNvbHV0aW9uVW5pdD4KICA8dGlmZjpYUmVzb2x1dGlvbj4zMDAvMTwvdGlmZjpYUmVzb2x1dGlvbj4KICA8dGlmZjpZUmVzb2x1dGlvbj4zMDAvMTwvdGlmZjpZUmVzb2x1dGlvbj4KIDwvcmRmOkRlc2NyaXB0aW9uPgoKIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PScnCiAgeG1sbnM6eG1wPSdodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvJz4KICA8eG1wOkNyZWF0b3JUb29sPkFkb2JlIFN0b2NrIFBsYXRmb3JtPC94bXA6Q3JlYXRvclRvb2w+CiA8L3JkZjpEZXNjcmlwdGlvbj4KCiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0nJwogIHhtbG5zOnhtcE1NPSdodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vJz4KICA8eG1wTU06RG9jdW1lbnRJRD54bXAuaWlkOmM0YmZkNzhhLWZhZTYtNDVkOS05NDE5LTJjNzIxZTI2ZTVhZDwveG1wTU06RG9jdW1lbnRJRD4KICA8eG1wTU06SW5zdGFuY2VJRD5hZG9iZTpkb2NpZDpzdG9jazo1ZjlkM2M3Yi02N2IxLTQ5OTUtYjUxMC0yOWFiZTY3OWQ3ZWI8L3htcE1NOkluc3RhbmNlSUQ+CiAgPHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD5hZG9iZTpkb2NpZDpzdG9jazo4MTAzMjUxNTU8L3htcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD4KIDwvcmRmOkRlc2NyaXB0aW9uPgo8L3JkZjpSREY+CjwveDp4bXBtZXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAog" alt="About JaniellNet" class="about-img">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Entre em Contato</h2>
-            <div class="contact-content">
+            <h2 style="text-align: center;">Entre em Contato</h2>
+            <div style="text-align: center; margin-top: 40px;">
+                <p>Nos chame em qualquer uma de nossas redes sociais ou por WhatsApp</p>
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Telefone</h3>
-                            <p>(38) 99850-8385</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Email</h3>
-                            <p>janielsantos0009@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-instagram"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Instagram</h3>
-                            <p>@janiel_sw7_</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" name="name" placeholder="Seu Nome" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" name="email" placeholder="Seu Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" name="phone" placeholder="Seu Telefone">
-                        </div>
-                        <div class="form-group">
-                            <select name="plan" required>
-                                <option value="">Escolha um plano</option>
-                                <option value="Básico">Básico - R$ 19/mês</option>
-                                <option value="Premium">Premium - R$ 39/mês</option>
-                                <option value="Empresarial">Empresarial - R$ 79/mês</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea name="message" rows="5" placeholder="Sua mensagem (opcional)"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
-                    </form>
+                    <p><strong>WhatsApp:</strong> <a href="https://wa.me/5538998508385">(38) 99850-8385</a></p>
+                    <p><strong>Telegram:</strong> <a href="https://t.me/janiellnet">@janiellnet</a></p>
+                    <p><strong>Instagram:</strong> <a href="https://instagram.com/janiel_sw7_">@janiel_sw7_</a></p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="footer">
+    
+    <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>JaniellNet VPN</h3>
-                    <p>Sua segurança digital é nossa prioridade. Proteja sua privacidade online com a melhor tecnologia VPN do mercado.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="https://instagram.com/janiel_sw7_"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Serviços</h4>
-                    <ul>
-                        <li><a href="#services">VPN Pessoal</a></li>
-                        <li><a href="#services">VPN Empresarial</a></li>
-                        <li><a href="#services">Suporte Técnico</a></li>
-                        <li><a href="#services">Configuração</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Suporte</h4>
-                    <ul>
-                        <li><a href="#contact">Central de Ajuda</a></li>
-                        <li><a href="#contact">Contato</a></li>
-                        <li><a href="#about">Sobre Nós</a></li>
-                        <li><a href="#services">Planos</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contato</h4>
-                    <p><i class="fas fa-phone"></i> (38) 99850-8385</p>
-                    <p><i class="fas fa-envelope"></i> janielsantos0009@gmail.com</p>
-                    <p><i class="fab fa-instagram"></i> @janiel_sw7_</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 JaniellNet VPN. Todos os direitos reservados.</p>
-            </div>
+            <p>JaniellNet - Criação de Sites Profissionais</p>
+            <p>&copy; 2023 Todos os direitos reservados</p>
         </div>
     </footer>
-
-    <script>
-        // Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-}));
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-// Header background on scroll
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    if (window.scrollY > 100) {
-        header.style.background = 'rgba(10, 10, 10, 0.98)';
-    } else {
-        header.style.background = 'rgba(10, 10, 10, 0.95)';
-    }
-});
-
-// Form submission
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(this);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const phone = formData.get('phone');
-        const plan = formData.get('plan');
-        const message = formData.get('message');
-        
-        // Create WhatsApp message
-        const whatsappMessage = `Olá! Gostaria de contratar o serviço VPN da JaniellNet.\n\n*Dados do Cliente:*\nNome: ${name}\nEmail: ${email}\nTelefone: ${phone || 'Não informado'}\nPlano escolhido: ${plan}\n\n*Mensagem:*\n${message || 'Sem mensagem adicional'}`;
-        
-        // Encode message for URL
-        const encodedMessage = encodeURIComponent(whatsappMessage);
-        
-        // WhatsApp number (remove spaces and special characters)
-        const whatsappNumber = '5538998508385';
-        
-        // Create WhatsApp URL
-        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-        
-        // Open WhatsApp
-        window.open(whatsappURL, '_blank');
-        
-        // Show success message
-        showNotification('Redirecionando para o WhatsApp...', 'success');
-        
-        // Reset form
-        this.reset();
-    });
-}
-
-// Notification system
-function showNotification(message, type = 'info') {
-    // Remove existing notifications
-    const existingNotifications = document.querySelectorAll('.notification');
-    existingNotifications.forEach(notification => notification.remove());
-    
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-        <div class="notification-content">
-            <span class="notification-message">${message}</span>
-            <button class="notification-close">&times;</button>
-        </div>
-    `;
-    
-    // Add styles
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: ${type === 'success' ? '#dc2626' : '#333'};
-        color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        z-index: 10000;
-        animation: slideInRight 0.3s ease-out;
-        max-width: 300px;
-    `;
-    
-    // Add animation styles
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes slideInRight {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-        .notification-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-        }
-        .notification-close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-            padding: 0;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .notification-close:hover {
-            opacity: 0.7;
-        }
-    `;
-    document.head.appendChild(style);
-    
-    // Add to page
-    document.body.appendChild(notification);
-    
-    // Close button functionality
-    const closeBtn = notification.querySelector('.notification-close');
-    closeBtn.addEventListener('click', () => {
-        notification.remove();
-    });
-    
-    // Auto remove after 5 seconds
-    setTimeout(() => {
-        if (notification.parentNode) {
-            notification.remove();
-        }
-    }, 5000);
-}
-
-// Intersection Observer for animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.feature-card, .plan-card, .contact-item');
-    
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-});
-
-// Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const parallaxElements = document.querySelectorAll('.hero-image');
-    
-    parallaxElements.forEach(element => {
-        const speed = 0.5;
-        element.style.transform = `translateY(${scrolled * speed}px)`;
-    });
-});
-
-// Add loading animation
-window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-    
-    // Add CSS for loading animation
-    const loadingStyle = document.createElement('style');
-    loadingStyle.textContent = `
-        body:not(.loaded) {
-            overflow: hidden;
-        }
-        body:not(.loaded)::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #0a0a0a;
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        body:not(.loaded)::after {
-            content: 'JaniellNet VPN';
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #dc2626;
-            font-size: 2rem;
-            font-weight: 700;
-            z-index: 10000;
-            animation: pulse 1.5s infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-    `;
-    document.head.appendChild(loadingStyle);
-});
-
-// Add click effects to buttons
-document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.btn');
-    
-    buttons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            // Create ripple effect
-            const ripple = document.createElement('span');
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            
-            ripple.style.cssText = `
-                position: absolute;
-                width: ${size}px;
-                height: ${size}px;
-                left: ${x}px;
-                top: ${y}px;
-                background: rgba(255, 255, 255, 0.3);
-                border-radius: 50%;
-                transform: scale(0);
-                animation: ripple 0.6s linear;
-                pointer-events: none;
-            `;
-            
-            // Add ripple animation
-            const rippleStyle = document.createElement('style');
-            rippleStyle.textContent = `
-                @keyframes ripple {
-                    to {
-                        transform: scale(2);
-                        opacity: 0;
-                    }
-                }
-            `;
-            document.head.appendChild(rippleStyle);
-            
-            this.style.position = 'relative';
-            this.style.overflow = 'hidden';
-            this.appendChild(ripple);
-            
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
-        });
-    });
-});
-
-// Form validation
-function validateForm() {
-    const form = document.getElementById('contactForm');
-    const inputs = form.querySelectorAll('input[required], select[required]');
-    let isValid = true;
-    
-    inputs.forEach(input => {
-        if (!input.value.trim()) {
-            input.style.borderColor = '#dc2626';
-            isValid = false;
-        } else {
-            input.style.borderColor = '#262626';
-        }
-    });
-    
-    // Email validation
-    const emailInput = form.querySelector('input[type="email"]');
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (emailInput.value && !emailRegex.test(emailInput.value)) {
-        emailInput.style.borderColor = '#dc2626';
-        isValid = false;
-    }
-    
-    return isValid;
-}
-
-// Add real-time validation
-document.addEventListener('DOMContentLoaded', () => {
-    const formInputs = document.querySelectorAll('#contactForm input, #contactForm select, #contactForm textarea');
-    
-    formInputs.forEach(input => {
-        input.addEventListener('blur', () => {
-            if (input.hasAttribute('required') && !input.value.trim()) {
-                input.style.borderColor = '#dc2626';
-            } else {
-                input.style.borderColor = '#262626';
-            }
-        });
-        
-        input.addEventListener('focus', () => {
-            input.style.borderColor = '#dc2626';
-        });
-    });
-});
-
-// Add typing effect to hero title
-document.addEventListener('DOMContentLoaded', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const text = heroTitle.innerHTML;
-        heroTitle.innerHTML = '';
-        
-        let i = 0;
-        const typeWriter = () => {
-            if (i < text.length) {
-                heroTitle.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 50);
-            }
-        };
-        
-        setTimeout(typeWriter, 1000);
-    }
-});
-
-// Add counter animation for stats
-function animateCounter(element, target, duration = 2000) {
-    let start = 0;
-    const increment = target / (duration / 16);
-    
-    const timer = setInterval(() => {
-        start += increment;
-        if (start >= target) {
-            element.textContent = target + (element.textContent.includes('+') ? '+' : '') + (element.textContent.includes('%') ? '%' : '');
-            clearInterval(timer);
-        } else {
-            element.textContent = Math.floor(start) + (element.textContent.includes('+') ? '+' : '') + (element.textContent.includes('%') ? '%' : '');
-        }
-    }, 16);
-}
-
-// Observe stats for counter animation
-document.addEventListener('DOMContentLoaded', () => {
-    const stats = document.querySelectorAll('.stat h3');
-    const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const text = entry.target.textContent;
-                const number = parseInt(text.replace(/\D/g, ''));
-                if (number) {
-                    entry.target.textContent = '0' + text.replace(/\d/g, '');
-                    animateCounter(entry.target, number);
-                    statsObserver.unobserve(entry.target);
-                }
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    stats.forEach(stat => statsObserver.observe(stat));
-});
-
-    </script>
 </body>
 </html>
-
