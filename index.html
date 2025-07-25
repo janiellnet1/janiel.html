@@ -1,1081 +1,749 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Criamos sites high-tech personalizados que impressionam. Design futurista e performance máxima.">
-  <meta name="keywords" content="site, tech, design, desenvolvimento web, portfolio">
-  <title>🔥 Fase Final | Criação de Sites High-Tech 🔥</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0; padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(135deg, #0a0a0a, #111111);
-      color: #fff;
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
-
-    /* Loader Tech */
-    .loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #000;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      transition: opacity 0.5s ease;
-    }
-
-    .loader-spinner {
-      width: 50px;
-      height: 50px;
-      border: 5px solid rgba(0, 255, 255, 0.3);
-      border-radius: 50%;
-      border-top-color: #0ff;
-      animation: spin 1s ease-in-out infinite;
-      margin-bottom: 20px;
-    }
-
-    .loader-text {
-      color: #0ff;
-      font-size: 1.2rem;
-      text-shadow: 0 0 10px #0ff;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    /* Navbar */
-    nav {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      padding: 0.8rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0, 255, 255, 0.1);
-    }
-
-    nav h2 {
-      color: #0ff;
-      font-size: 1.5rem;
-      font-weight: 800;
-      text-shadow: 0 0 10px #0ff;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-    }
-
-    .nav-links li a {
-      text-decoration: none;
-      color: #fff;
-      font-size: 1rem;
-      transition: 0.3s;
-      position: relative;
-    }
-
-    .nav-links li a:hover {
-      color: #0ff;
-    }
-
-    .nav-links li a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      background: #0ff;
-      bottom: -5px;
-      left: 0;
-      transition: width 0.3s;
-    }
-
-    .nav-links li a:hover::after {
-      width: 100%;
-    }
-
-    .menu-btn {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    /* Header Hero */
-    header {
-      padding: 180px 20px 100px;
-      text-align: center;
-      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                  url('https://images.unsplash.com/photo-1639762681057-408e52192e55?q=80&w=2232&auto=format&fit=crop') no-repeat center/cover;
-      position: relative;
-      overflow: hidden;
-    }
-
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at center, transparent 0%, #000 100%);
-      z-index: 0;
-    }
-
-    header h1 {
-      font-size: 4rem;
-      color: #fff;
-      margin-bottom: 2rem;
-      position: relative;
-      z-index: 1;
-      text-shadow:
-        0 0 10px #0ff,
-        0 0 20px #0ff,
-        0 0 30px #0ff;
-      animation: flicker 2s infinite alternate;
-    }
-
-    .hero-subtitle {
-      font-size: 1.5rem;
-      color: #ccc;
-      margin-bottom: 3rem;
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      padding: 15px 35px;
-      background: linear-gradient(45deg, #0ff, #00ffaa);
-      color: #000;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.2rem;
-      transition: all 0.3s ease;
-      position: relative;
-      z-index: 1;
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-      border: none;
-      overflow: hidden;
-    }
-
-    .cta-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
-      background: linear-gradient(45deg, #00ffaa, #0ff);
-    }
-
-    .cta-btn::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(45deg, #ff00aa, #ff00ff);
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .cta-btn:hover::after {
-      opacity: 1;
-    }
-
-    /* Seções */
-    section {
-      padding: 80px 5%;
-      text-align: center;
-      position: relative;
-    }
-
-    .section-title {
-      font-size: 2.5rem;
-      color: #0ff;
-      margin-bottom: 20px;
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      width: 50%;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, #0ff, transparent);
-      bottom: -10px;
-      left: 25%;
-    }
-
-    .section-subtitle {
-      color: #aaa;
-      font-size: 1.2rem;
-      max-width: 800px;
-      margin: 0 auto 50px;
-    }
-
-    /* Sobre */
-    .about-content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 50px;
-      flex-wrap: wrap;
-    }
-
-    .about-text {
-      flex: 1;
-      min-width: 300px;
-      text-align: left;
-    }
-
-    .about-text p {
-      color: #ccc;
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-    }
-
-    .about-image {
-      flex: 1;
-      min-width: 300px;
-      position: relative;
-    }
-
-    .about-image img {
-      width: 100%;
-      max-width: 500px;
-      border-radius: 10px;
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
-      transition: transform 0.5s;
-    }
-
-    .about-image:hover img {
-      transform: scale(1.03);
-    }
-
-    /* Recursos */
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 50px;
-    }
-
-    .feature-box {
-      background: rgba(20, 20, 20, 0.7);
-      border: 1px solid rgba(0, 255, 255, 0.1);
-      border-radius: 15px;
-      padding: 2rem;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(5px);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .feature-box::before {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(45deg, #0ff, #00ffaa, #0ff);
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .feature-box:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
-      border-color: rgba(0, 255, 255, 0.3);
-    }
-
-    .feature-box:hover::before {
-      opacity: 0.3;
-    }
-
-    .feature-icon {
-      font-size: 2.5rem;
-      color: #0ff;
-      margin-bottom: 20px;
-      transition: transform 0.3s;
-    }
-
-    .feature-box:hover .feature-icon {
-      transform: scale(1.2);
-    }
-
-    .feature-title {
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-      color: #fff;
-    }
-
-    .feature-desc {
-      color: #aaa;
-      font-size: 1rem;
-    }
-
-    /* Portfólio */
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 50px;
-    }
-
-    .portfolio-item {
-      position: relative;
-      border-radius: 10px;
-      overflow: hidden;
-      height: 250px;
-      transition: all 0.3s ease;
-    }
-
-    .portfolio-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s;
-    }
-
-    .portfolio-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      opacity: 0;
-      transition: opacity 0.3s;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .portfolio-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
-    }
-
-    .portfolio-item:hover .portfolio-img {
-      transform: scale(1.1);
-    }
-
-    .portfolio-item:hover .portfolio-overlay {
-      opacity: 1;
-    }
-
-    .portfolio-title {
-      font-size: 1.5rem;
-      color: #fff;
-      margin-bottom: 10px;
-    }
-
-    .portfolio-desc {
-      color: #ccc;
-      font-size: 0.9rem;
-      margin-bottom: 15px;
-    }
-
-    .portfolio-link {
-      color: #0ff;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      transition: color 0.3s;
-    }
-
-    .portfolio-link:hover {
-      color: #fff;
-    }
-
-    /* Contato */
-    .contact-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 50px;
-      justify-content: center;
-      align-items: flex-start;
-      margin-top: 50px;
-    }
-
-    .contact-info {
-      flex: 1;
-      min-width: 300px;
-      text-align: left;
-      background: rgba(20, 20, 20, 0.7);
-      padding: 30px;
-      border-radius: 15px;
-      backdrop-filter: blur(5px);
-    }
-
-    .contact-info h3 {
-      color: #0ff;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      position: relative;
-    }
-
-    .contact-info h3::after {
-      content: '';
-      position: absolute;
-      width: 50px;
-      height: 3px;
-      background: #0ff;
-      bottom: -10px;
-      left: 0;
-    }
-
-    .contact-detail {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .contact-icon {
-      font-size: 1.5rem;
-      color: #0ff;
-      min-width: 30px;
-    }
-
-    .contact-text {
-      color: #ccc;
-    }
-
-    .contact-text a {
-      color: #0ff;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .contact-text a:hover {
-      color: #fff;
-    }
-
-    .contact-form {
-      flex: 1;
-      min-width: 300px;
-      background: rgba(20, 20, 20, 0.7);
-      padding: 30px;
-      border-radius: 15px;
-      backdrop-filter: blur(5px);
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-label {
-      display: block;
-      color: #ccc;
-      margin-bottom: 8px;
-      font-size: 1rem;
-    }
-
-    .form-input {
-      width: 100%;
-      padding: 12px 15px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 5px;
-      color: #fff;
-      font-family: 'Orbitron', sans-serif;
-      transition: all 0.3s;
-    }
-
-    .form-input:focus {
-      outline: none;
-      border-color: #0ff;
-      background: rgba(0, 255, 255, 0.05);
-    }
-
-    textarea.form-input {
-      min-height: 150px;
-      resize: vertical;
-    }
-
-    .submit-btn {
-      width: 100%;
-      padding: 15px;
-      background: linear-gradient(45deg, #0ff, #00ffaa);
-      color: #000;
-      border: none;
-      border-radius: 5px;
-      font-family: 'Orbitron', sans-serif;
-      font-weight: bold;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .submit-btn:hover {
-      background: linear-gradient(45deg, #00ffaa, #0ff);
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
-    }
-
-    /* Footer */
-    footer {
-      background: #000;
-      padding: 2rem;
-      text-align: center;
-      position: relative;
-    }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .footer-logo {
-      font-size: 2rem;
-      color: #0ff;
-      margin-bottom: 20px;
-      font-weight: 800;
-      text-shadow: 0 0 10px #0ff;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .footer-links a {
-      color: #ccc;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .footer-links a:hover {
-      color: #0ff;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 20px;
-    }
-
-    .social-link {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      transition: all 0.3s;
-    }
-
-    .social-link:hover {
-      background: #0ff;
-      color: #000;
-      transform: translateY(-5px);
-    }
-
-    .copyright {
-      color: #777;
-      font-size: 0.9rem;
-      margin-top: 20px;
-    }
-
-    /* Botões flutuantes */
-    .floating-btn {
-      position: fixed;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      color: white;
-      text-align: center;
-      z-index: 1001;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    .floating-btn:hover {
-      transform: scale(1.1) translateY(-5px);
-    }
-
-    .floating-btn img {
-      width: 30px;
-      height: 30px;
-      object-fit: contain;
-      transition: transform 0.3s;
-    }
-
-    .floating-btn:hover img {
-      transform: scale(1.2);
-    }
-
-    .whatsapp {
-      bottom: 30px;
-      right: 30px;
-      background: #25D366;
-    }
-
-    .instagram {
-      bottom: 30px;
-      right: 100px;
-      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-    }
-
-    .back-to-top {
-      bottom: 30px;
-      left: 30px;
-      background: rgba(0, 255, 255, 0.2);
-      backdrop-filter: blur(5px);
-      border: 1px solid rgba(0, 255, 255, 0.3);
-      color: #0ff;
-      font-size: 1.5rem;
-    }
-
-    .back-to-top:hover {
-      background: rgba(0, 255, 255, 0.3);
-    }
-
-    /* Animações */
-    @keyframes flicker {
-      0%, 100% { opacity: 1; text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff; }
-      50% { opacity: 0.8; text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff; }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    /* Responsividade */
-    @media (max-width: 992px) {
-      header h1 {
-        font-size: 3rem;
-      }
-      
-      .hero-subtitle {
-        font-size: 1.2rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .menu-btn {
-        display: block;
-      }
-      
-      .nav-links {
-        position: fixed;
-        top: 70px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
-        background: rgba(0, 0, 0, 0.95);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 2rem;
-        transition: left 0.3s;
-      }
-      
-      .nav-links.active {
-        left: 0;
-      }
-      
-      header {
-        padding: 150px 20px 80px;
-      }
-      
-      header h1 {
-        font-size: 2.5rem;
-      }
-      
-      .section-title {
-        font-size: 2rem;
-      }
-      
-      .floating-btn {
-        width: 50px;
-        height: 50px;
-      }
-      
-      .instagram {
-        right: 80px;
-      }
-    }
-
-    @media (max-width: 576px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      
-      .hero-subtitle {
-        font-size: 1rem;
-      }
-      
-      .cta-btn {
-        padding: 12px 25px;
-        font-size: 1rem;
-      }
-      
-      .section-title {
-        font-size: 1.8rem;
-      }
-      
-      .feature-box {
-        padding: 1.5rem;
-      }
-      
-      .contact-container {
-        flex-direction: column;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureVPN - Proteção Online Premium</title>
+    <style>
+        /* Reset e Estilos Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Cabeçalho */
+        header {
+            background-color: #1a1a2e;
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4cc9f0;
+        }
+        
+        .logo span {
+            color: white;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #4cc9f0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #4cc9f0;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #3aa8d8;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #4cc9f0;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(76, 201, 240, 0.1);
+        }
+        
+        /* Recursos */
+        .features {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #1a1a2e;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            color: #4cc9f0;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #1a1a2e;
+        }
+        
+        /* Planos de Preço */
+        .pricing {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .pricing-card {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid #4cc9f0;
+            position: relative;
+        }
+        
+        .popular-tag {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4cc9f0;
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .pricing-card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #1a1a2e;
+        }
+        
+        .price {
+            font-size: 48px;
+            font-weight: bold;
+            color: #4cc9f0;
+            margin-bottom: 20px;
+        }
+        
+        .price span {
+            font-size: 16px;
+            color: #666;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        /* Testemunhos */
+        .testimonials {
+            padding: 80px 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* Contato */
+        .contact {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #1a1a2e;
+        }
+        
+        .contact-info p {
+            margin-bottom: 30px;
+        }
+        
+        .contact-details {
+            list-style: none;
+        }
+        
+        .contact-details li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-details li i {
+            margin-right: 15px;
+            color: #4cc9f0;
+            font-size: 20px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Rodapé */
+        footer {
+            background-color: #1a1a2e;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #4cc9f0;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: #4cc9f0;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #4cc9f0;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #ccc;
+            font-size: 14px;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <!-- Loader -->
-  <div class="loader">
-    <div class="loader-spinner"></div>
-    <div class="loader-text">CARREGANDO SITE janiellnet...</div>
-  </div>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Secure<span>VPN</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#features">Recursos</a></li>
+                    <li><a href="#pricing">Planos</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                    <li><a href="#" class="btn">Entrar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <!-- Navbar -->
-  <nav>
-    <h2>CRIADOR DE SITES - janiellnet</h2>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#recursos">Recursos</a></li>
-      <li><a href="#portfolio">Portfólio</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-    <div class="menu-btn">
-      <i class="fas fa-bars"></i>
-    </div>
-  </nav>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Proteção Online Premium</h1>
+            <p>Nossa VPN de alta velocidade protege sua privacidade, permite acesso a conteúdo global e mantém seus dados seguros em qualquer rede.</p>
+            <div class="hero-btns">
+                <a href="#pricing" class="btn">Comece Agora</a>
+                <a href="#features" class="btn btn-secondary">Saiba Mais</a>
+            </div>
+        </div>
+    </section>
 
-  <!-- Header/Hero -->
-  <header id="home">
-    <h1>BEM-VINDO AO<br>janiellnet</h1>
-    <p class="hero-subtitle">Criação de sites high-tech que impressionam e convertem. Design futurista com performance de outro nível.</p>
-    <a href="#contato" class="cta-btn">QUERO MEU SITE AGORA!</a>
-  </header>
+    <!-- Recursos -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Por que escolher nossa VPN</h2>
+                <p>Oferecemos a melhor combinação de velocidade, segurança e facilidade de uso para proteger sua privacidade online.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Segurança Forte</h3>
+                    <p>Proteção com criptografia AES-256, garantindo que seus dados permaneçam privados e seguros contra hackers e bisbilhoteiros.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Velocidade Rápida</h3>
+                    <p>Nossa rede global de servidores otimizados oferece velocidades ultrarrápidas para streaming, jogos e navegação.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Acesso Global</h3>
+                    <p>Desbloqueie conteúdo de qualquer lugar do mundo com servidores em mais de 50 países.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Sem Registros</h3>
+                    <p>Política estrita de não registro - nunca rastreamos ou armazenamos sua atividade online.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Multiplataforma</h3>
+                    <p>Compatível com Windows, Mac, iOS, Android, Linux e roteadores. Proteja até 5 dispositivos simultaneamente.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Suporte 24/7</h3>
+                    <p>Nossa equipe de suporte está disponível a qualquer momento para ajudar com quaisquer problemas ou perguntas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Sobre -->
-  <section id="sobre" class="about">
-    <h2 class="section-title">SOBRE NÓS</h2>
-    <p class="section-subtitle">Transformamos ideias em experiências digitais impressionantes</p>
-    
-    <div class="about-content">
-      <div class="about-text">
-        <p>Eu, @janiellnet respiro tecnologia e design. Minha missão é criar sites que não apenas atendam, mas superem todas as expectativas.</p>
-        <p>Combinamos as últimas tendências em desenvolvimento web com designs ousados para entregar produtos que realmente se destacam.</p>
-        <p>Desde 2025, ajudamos marcas a se tornarem memoráveis no mundo digital.</p>
-        <a href="#recursos" class="btn" style="background: linear-gradient(45deg, #ff00aa, #ff00ff); margin-top: 30px;">NOSSOS RECURSOS</a>
-      </div>
-      <div class="about-image">
-        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=2342&auto=format&fit=crop" alt="Equipe Lokão">
-      </div>
-    </div>
-  </section>
+    <!-- Planos de Preço -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Planos Acessíveis</h2>
+                <p>Escolha o plano que melhor atende às suas necessidades. Todos os planos incluem nossa garantia de devolução do dinheiro em 30 dias.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Básico</h3>
+                    <div class="price">R$9,99<span>/mês</span></div>
+                    <ul class="pricing-features">
+                        <li>Servidores em 30 países</li>
+                        <li>3 dispositivos simultâneos</li>
+                        <li>Velocidade padrão</li>
+                        <li>Suporte por e-mail</li>
+                        <li>Criptografia AES-256</li>
+                    </ul>
+                    <a href="#" class="btn">Assinar</a>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-tag">Mais Popular</div>
+                    <h3>Premium</h3>
+                    <div class="price">R$19,99<span>/mês</span></div>
+                    <ul class="pricing-features">
+                        <li>Servidores em 50+ países</li>
+                        <li>5 dispositivos simultâneos</li>
+                        <li>Velocidade ultrarrápida</li>
+                        <li>Suporte prioritário 24/7</li>
+                        <li>Criptografia AES-256</li>
+                        <li>Proteção contra malware</li>
+                    </ul>
+                    <a href="#" class="btn">Assinar</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Família</h3>
+                    <div class="price">R$29,99<span>/mês</span></div>
+                    <ul class="pricing-features">
+                        <li>Servidores em 50+ países</li>
+                        <li>10 dispositivos simultâneos</li>
+                        <li>Velocidade ultrarrápida</li>
+                        <li>Suporte prioritário 24/7</li>
+                        <li>Criptografia AES-256</li>
+                        <li>Proteção contra malware</li>
+                        <li>Controle parental</li>
+                    </ul>
+                    <a href="#" class="btn">Assinar</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Recursos -->
-  <section id="recursos" class="features">
-    <h2 class="section-title">NOSSOS RECURSOS</h2>
-    <p class="section-subtitle">Tecnologia de ponta para resultados extraordinários</p>
-    
-    <div class="features">
-      <div class="feature-box">
-        <i class="fas fa-rocket feature-icon"></i>
-        <h3 class="feature-title">Performance Extrema</h3>
-        <p class="feature-desc">Sites otimizados que carregam em milissegundos, garantindo a melhor experiência para seus usuários.</p>
-      </div>
-      <div class="feature-box">
-        <i class="fas fa-mobile-alt feature-icon"></i>
-        <h3 class="feature-title">Responsividade Total</h3>
-        <p class="feature-desc">Perfeito em qualquer dispositivo, do smartphone ao desktop, sem perder qualidade.</p>
-      </div>
-      <div class="feature-box">
-        <i class="fas fa-shield-alt feature-icon"></i>
-        <h3 class="feature-title">Segurança Blindada</h3>
-        <p class="feature-desc">Proteção avançada contra ameaças digitais para manter seus dados sempre seguros.</p>
-      </div>
-      <div class="feature-box">
-        <i class="fas fa-chart-line feature-icon"></i>
-        <h3 class="feature-title">SEO Avançado</h3>
-        <p class="feature-desc">Estrutura otimizada para ranqueamento no Google e outros mecanismos de busca.</p>
-      </div>
-      <div class="feature-box">
-        <i class="fas fa-paint-brush feature-icon"></i>
-        <h3 class="feature-title">Design Impactante</h3>
-        <p class="feature-desc">Interfaces que cativam e engajam seus visitantes desde o primeiro clique.</p>
-      </div>
-      <div class="feature-box">
-        <i class="fas fa-headset feature-icon"></i>
-        <h3 class="feature-title">Suporte 24/7</h3>
-        <p class="feature-desc">Equipe sempre disponível para resolver qualquer questão rapidamente.</p>
-      </div>
-    </div>
-  </section>
+    <!-- Testemunhos -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>O que nossos clientes dizem</h2>
+                <p>Veja como a SecureVPN está ajudando pessoas como você a proteger sua privacidade online.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Estou usando a SecureVPN há mais de um ano e nunca tive problemas. A velocidade é incrível e consigo acessar todos os meus serviços de streaming favoritos quando estou viajando."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Ana Silva" class="author-img">
+                        <div class="author-info">
+                            <h4>Ana Silva</h4>
+                            <p>Designer Gráfico</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Como jornalista, a privacidade online é crucial para mim. A SecureVPN me dá a tranquilidade de saber que minhas comunicações estão seguras, não importa onde eu esteja trabalhando."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Mendes" class="author-img">
+                        <div class="author-info">
+                            <h4>Carlos Mendes</h4>
+                            <p>Jornalista</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Comprei a VPN principalmente para jogar, e a diferença de ping é impressionante. Além disso, a facilidade de uso em todos os meus dispositivos tornou a experiência perfeita."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Pedro Rocha" class="author-img">
+                        <div class="author-info">
+                            <h4>Pedro Rocha</h4>
+                            <p>Gamer Profissional</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Portfólio -->
-  <section id="portfolio" class="portfolio">
-    <h2 class="section-title">NOSSO PORTFÓLIO</h2>
-    <p class="section-subtitle">Alguns dos nossos projetos mais recentes</p>
-    
-    <div class="portfolio-grid">
-      <div class="portfolio-item">
-        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=2274&auto=format&fit=crop" alt="Projeto 1" class="portfolio-img">
-        <div class="portfolio-overlay">
-          <h3 class="portfolio-title">Tech Solutions</h3>
-          <p class="portfolio-desc">Site corporativo para empresa de tecnologia com dashboard integrado.</p>
-          <a href="#" class="portfolio-link">Ver Projeto <i class="fas fa-arrow-right"></i></a>
+    <!-- Contato -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Entre em Contato</h2>
+                <p>Tem alguma dúvida ou precisa de ajuda? Nossa equipe está pronta para ajudar.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Fale Conosco</h3>
+                    <p>Estamos comprometidos em fornecer o melhor suporte ao cliente. Entre em contato conosco por qualquer meio que preferir.</p>
+                    <ul class="contact-details">
+                        <li><i class="fas fa-envelope"></i> suporte@securevpn.com</li>
+                        <li><i class="fas fa-phone"></i> (11) 1234-5678</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000, São Paulo - SP</li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" name="name" placeholder="Seu Nome" required>
+                        <input type="email" name="email" placeholder="Seu E-mail" required>
+                        <input type="text" name="subject" placeholder="Assunto">
+                        <textarea name="message" placeholder="Sua Mensagem" required></textarea>
+                        <button type="submit" class="btn">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="portfolio-item">
-        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=2369&auto=format&fit=crop" alt="Projeto 2" class="portfolio-img">
-        <div class="portfolio-overlay">
-          <h3 class="portfolio-title">Fashion Store</h3>
-          <p class="portfolio-desc">E-commerce completo para marca de moda com integração de pagamentos.</p>
-          <a href="#" class="portfolio-link">Ver Projeto <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-      <div class="portfolio-item">
-        <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=2370&auto=format&fit=crop" alt="Projeto 3" class="portfolio-img">
-        <div class="portfolio-overlay">
-          <h3 class="portfolio-title">Creative Agency</h3>
-          <p class="portfolio-desc">Site portfólio para agência criativa com galeria interativa.</p>
-          <a href="#" class="portfolio-link">Ver Projeto <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contato -->
-  <section id="contato" class="contact">
-    <h2 class="section-title">FALE CONOSCO</h2>
-    <p class="section-subtitle">Pronto para levar seu projeto para o próximo nível?</p>
-    
-    <div class="contact-container">
-      <div class="contact-info">
-        <h3>Informações de Contato</h3>
-        <div class="contact-detail">
-          <div class="contact-icon">
-            <i class="fas fa-map-marker-alt"></i>
-          </div>
-          <div class="contact-text">
-            Av. ****, **** - ********/MG
-          </div>
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>SecureVPN</h3>
+                    <p>Protegendo sua privacidade online desde 2015. Oferecemos a melhor combinação de velocidade, segurança e facilidade de uso.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#features">Recursos</a></li>
+                        <li><a href="#pricing">Planos</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Termos de Serviço</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Política de Reembolso</a></li>
+                        <li><a href="#">DMCA</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Assine nossa newsletter</h3>
+                    <form id="newsletterForm">
+                        <input type="email" name="email" placeholder="Seu e-mail" required>
+                        <button type="submit" class="btn">Assinar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 SecureVPN. Todos os direitos reservados.</p>
+            </div>
         </div>
-        <div class="contact-detail">
-          <div class="contact-icon">
-            <i class="fas fa-phone-alt"></i>
-          </div>
-          <div class="contact-text">
-            <a href="tel:+5538998508385">(38) 99850-8385</a>
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="contact-icon">
-            <i class="fas fa-envelope"></i>
-          </div>
-          <div class="contact-text">
-            <a href="mailto:janielsantos0009@gmail.com">janielsantos0009@gmail.com</a>
-          </div>
-        </div>
-        <div class="contact-detail">
-          <div class="contact-icon">
-            <i class="fas fa-clock"></i>
-          </div>
-          <div class="contact-text">
-            Sab-Dom: 9h às 18h
-          </div>
-        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling para links âncora
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
         
-        <div class="social-links" style="justify-content: flex-start; margin-top: 30px;">
-          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
-        </div>
-      </div>
-      
-      <div class="contact-form">
-        <form>
-          <div class="form-group">
-            <label for="name" class="form-label">Seu Nome</label>
-            <input type="text" id="name" class="form-input" required>
-          </div>
-          <div class="form-group">
-            <label for="email" class="form-label">Seu E-mail</label>
-            <input type="email" id="email" class="form-input" required>
-          </div>
-          <div class="form-group">
-            <label for="subject" class="form-label">Assunto</label>
-            <input type="text" id="subject" class="form-input" required>
-          </div>
-          <div class="form-group">
-            <label for="message" class="form-label">Sua Mensagem</label>
-            <textarea id="message" class="form-input" required></textarea>
-          </div>
-          <button type="submit" class="submit-btn">ENVIAR MENSAGEM</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-logo">CRIADOR DE SITES - janiellnet</div>
-      <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#recursos">Recursos</a>
-        <a href="#portfolio">Portfólio</a>
-        <a href="#contato">Contato</a>
-        <a href="#">Termos</a>
-        <a href="#">Privacidade</a>
-      </div>
-      <div class="social-links">
-        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-      </div>
-      <div class="copyright">
-        &copy; 2025 janiellnet™. Todos os direitos reservados.
-      </div>
-    </div>
-  </footer>
-
-  <!-- Botões flutuantes -->
-  <a href="https://wa.me/5538998508385" class="floating-btn whatsapp" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-  </a>
-
-  <a href="https://instagram.com/janiel_sw7_" class="floating-btn instagram" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram">
-  </a>
-
-  <a href="#home" class="floating-btn back-to-top">
-    <i class="fas fa-arrow-up"></i>
-  </a>
-
-  <!-- Scripts -->
-  <script>
-    // Loader
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        document.querySelector('.loader').style.opacity = '0';
-        setTimeout(function() {
-          document.querySelector('.loader').style.display = 'none';
-        }, 500);
-      }, 1000);
-    });
-
-    // Menu mobile
-    const menuBtn = document.querySelector('.menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    
-    menuBtn.addEventListener('click', function() {
-      navLinks.classList.toggle('active');
-      menuBtn.innerHTML = navLinks.classList.contains('active') ? 
-        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-    });
-
-    // Fechar menu ao clicar em um link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-      });
-    });
-
-    // Scroll suave
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
+        // Formulário de contato
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Obrigado por sua mensagem! Entraremos em contato em breve.');
+            this.reset();
+        });
         
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
+        // Formulário de newsletter
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Obrigado por assinar nossa newsletter!');
+            this.reset();
+        });
         
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 70,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
-    // Animação ao rolar
-    document.addEventListener('DOMContentLoaded', function() {
-      const scrollReveal = ScrollReveal({
-        origin: 'bottom',
-        distance: '30px',
-        duration: 1000,
-        reset: true
-      });
-      
-      scrollReveal.reveal('.section-title, .section-subtitle', { delay: 200 });
-      scrollReveal.reveal('.about-text, .about-image', { delay: 300, interval: 200 });
-      scrollReveal.reveal('.feature-box', { delay: 200, interval: 150 });
-      scrollReveal.reveal('.portfolio-item', { delay: 200, interval: 150 });
-      scrollReveal.reveal('.contact-info, .contact-form', { delay: 200, interval: 200 });
-    });
-
-    // Mostrar/ocultar botão "Voltar ao topo"
-    window.addEventListener('scroll', function() {
-      const backToTopBtn = document.querySelector('.back-to-top');
-      if (window.scrollY > 300) {
-        backToTopBtn.style.opacity = '1';
-        backToTopBtn.style.visibility = 'visible';
-      } else {
-        backToTopBtn.style.opacity = '0';
-        backToTopBtn.style.visibility = 'hidden';
-      }
-    });
-  </script>
-  <script src="https://unpkg.com/scrollreveal"></script>
+        // Efeito de rolagem para o cabeçalho
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(26, 26, 46, 0.9)';
+                header.style.padding = '15px 0';
+            } else {
+                header.style.background = '#1a1a2e';
+                header.style.padding = '20px 0';
+            }
+        });
+    </script>
 </body>
 </html>
