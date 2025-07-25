@@ -1,51 +1,34 @@
-        <!-- CHAMADA PARA AÇÃO -->
-        <div class="botoes">
-            <a href="https://wa.me/5538998508385" class="botao whatsapp">
-                <i class="fab fa-whatsapp"></i> Quero Meu Site
-                <small>✅ 7 dias de garantia</small>
-            </a>
-            <a href="https://t.me/janiellnet" class="botao telegram">
-                <i class="fab fa-telegram"></i> Falar no Telegram
-                <small>🕒 Resposta em 5min</small>
-            </a>
+<div class="card">
+    <h2>Solicitar Orçamento</h2>
+    
+    <div style="margin: 1.5rem 0;">
+        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem;">
+            <input type="checkbox" id="resposta-rapida" style="transform: scale(1.3);">
+            <label for="resposta-rapida">Resposta em até 10h</label>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem;">
+            <input type="checkbox" id="telegram" checked style="transform: scale(1.3);">
+            <label for="telegram">Conversar no Telegram</label>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <input type="checkbox" id="vendimento" style="transform: scale(1.3);">
+            <label for="vendimento">Vendimento Personalizado</label>
         </div>
     </div>
     
-    <!-- RODAPÉ -->
-    <footer>
-        <h3>Entre em Contato</h3>
-        <p>Dúvidas? Me chame em qualquer rede:</p>
-        <div class="redes-sociais">
-            <a href="https://wa.me/5538998508385" class="rede-social">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="https://t.me/janiellnet" class="rede-social">
-                <i class="fab fa-telegram"></i>
-            </a>
-            <a href="https://instagram.com/janiel_sw7_" class="rede-social">
-                <i class="fab fa-instagram"></i>
-            </a>
+    <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid #eee;">
+    
+    <div>
+        <h3 style="margin-bottom: 1rem;">Entre em Contato</h3>
+        <p style="margin-bottom: 1rem;">Dúvidas? Me chame em qualquer rede:</p>
+        
+        <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+            <input type="checkbox" id="rede1" style="transform: scale(1.3);">
+            <input type="checkbox" id="rede2" style="transform: scale(1.3);">
         </div>
-        <p style="margin-top: 2rem;">© 2023 - (38) 99850-8385</p>
-    </footer>
+    </div>
     
-    <!-- WHATSAPP FLUTUANTE -->
-    <a href="https://wa.me/5538998508385" class="whatsapp-float">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-    
-    <!-- TIMER SCRIPT -->
-    <script>
-        // Timer de 5 horas
-        let time = 5 * 60 * 60;
-        const timer = setInterval(() => {
-            const hours = Math.floor(time / 3600).toString().padStart(2, '0');
-            const minutes = Math.floor((time % 3600) / 60).toString().padStart(2, '0');
-            const seconds = (time % 60).toString().padStart(2, '0');
-            document.getElementById('timer').textContent = `${hours}:${minutes}:${seconds}`;
-            time--;
-            if (time < 0) clearInterval(timer);
-        }, 1000);
-    </script>
-</body>
-</html>
+    <p style="text-align: center; margin-top: 2rem; color: var(--cinza);">© 2023 - Todos os direitos reservados.</p>
+</div>
