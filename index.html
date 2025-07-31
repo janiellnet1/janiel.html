@@ -1,34 +1,591 @@
-<div class="card">
-    <h2>Solicitar Orçamento</h2>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criação de Sites por R$30 | Domínio + R$30 = Site Pronto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --azul: #2563eb;
+            --azul-escuro: #1e4bcc;
+            --destaque: #ffd700;
+            --cinza: #6b7280;
+            --fundo: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: var(--fundo);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* CABEÇALHO */
+        header {
+            background: var(--azul);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -10%;
+            width: 120%;
+            height: 100px;
+            background: var(--fundo);
+            transform: rotate(-2deg);
+            z-index: 1;
+        }
+        
+        .conteudo-header {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .destaque {
+            background: var(--destaque);
+            color: #000;
+            font-weight: bold;
+            font-size: 2rem;
+            padding: 0.5rem 2rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 1rem 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* CONTEÚDO */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        h2 {
+            color: var(--azul);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 2rem;
+        }
+        
+        h3 {
+            color: var(--azul-escuro);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* PASSOS */
+        .passos {
+            display: flex;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .passo {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        
+        .passo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .icone {
+            font-size: 2.5rem;
+            color: var(--azul);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* BENEFÍCIOS */
+        .beneficios {
+            columns: 2;
+            column-gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .beneficio {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            break-inside: avoid;
+        }
+        
+        .beneficio i {
+            color: var(--azul);
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        /* PERGUNTAS */
+        .pergunta {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+        
+        .pergunta:last-child {
+            border-bottom: none;
+        }
+        
+        /* BOTÕES */
+        .botoes {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .botao {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-align: center;
+            position: relative;
+        }
+        
+        .botao small {
+            font-weight: normal;
+            display: block;
+            font-size: 0.8rem;
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 100%;
+            color: white;
+        }
+        
+        .whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .telegram {
+            background: #0088CC;
+            color: white;
+        }
+        
+        .botao:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* TIMER */
+        #timer {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--azul);
+            margin: 1rem 0;
+        }
+        
+        /* ANTES/DEPOIS */
+        .comparacao {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .comparacao-item {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .comparacao-titulo {
+            padding: 0.5rem;
+            border-radius: 5px 5px 0 0;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .comparacao-conteudo {
+            padding: 1rem;
+            border-radius: 0 0 5px 5px;
+            background: #f1faee;
+        }
+        
+        /* DEPOIMENTOS */
+        .depoimentos-container {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 1rem 0;
+            scrollbar-width: none;
+        }
+        
+        .depoimento {
+            min-width: 300px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .depoimento-cabecalho {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .depoimento-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--azul);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .depoimento-estrelas {
+            color: var(--destaque);
+        }
+        
+        /* RODAPÉ */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: 3rem;
+        }
+        
+        .redes-sociais {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .rede-social {
+            color: white;
+            font-size: 1.8rem;
+            transition: all 0.3s;
+        }
+        
+        .rede-social:hover {
+            transform: scale(1.2);
+        }
+        
+        /* WHATSAPP FLUTUANTE */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        @media (max-width: 768px) {
+            .beneficios {
+                columns: 1;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .destaque {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- CABEÇALHO -->
+    <header>
+        <div class="conteudo-header">
+            <h1>Seu Site Profissional por Apenas</h1>
+            <div class="destaque">R$30,00</div>
+            <p>Você compra o domínio (~R$40/ano) e eu crio o site completo!</p>
+        </div>
+    </header>
     
-    <div style="margin: 1.5rem 0;">
-        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem;">
-            <input type="checkbox" id="resposta-rapida" style="transform: scale(1.3);">
-            <label for="resposta-rapida">Resposta em até 10h</label>
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="container">
+        <!-- TIMER DE OFERTA -->
+        <div class="card" style="text-align: center;">
+            <h3 style="color: #e63946;">⏰ OFERTA POR TEMPO LIMITADO!</h3>
+            <p>Preço especial só para os primeiros 10 clientes!</p>
         </div>
         
-        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem;">
-            <input type="checkbox" id="telegram" checked style="transform: scale(1.3);">
-            <label for="telegram">Conversar no Telegram</label>
+        <!-- COMO FUNCIONA -->
+        <div class="card">
+            <h2>Como Funciona?</h2>
+            <div class="passos">
+                <div class="passo">
+                    <div class="icone"><i class="fas fa-globe"></i></div>
+                    <h3>1. Você Compra o Domínio</h3>
+                    <p>Exemplo: seunegocio.com (em sites como Registro.br ou Hostinger)</p>
+                </div>
+                <div class="passo">
+                    <div class="icone"><i class="fas fa-money-bill-wave"></i></div>
+                    <h3>2. Me Paga R$30</h3>
+                    <p>Via PIX, transferência ou PayPal</p>
+                </div>
+                <div class="passo">
+                    <div class="icone"><i class="fas fa-laptop-code"></i></div>
+                    <h3>3. Eu Crio Seu Site</h3>
+                    <p>Pronto em até 3 dias úteis</p>
+                </div>
+            </div>
         </div>
         
-        <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <input type="checkbox" id="vendimento" style="transform: scale(1.3);">
-            <label for="vendimento">Vendimento Personalizado</label>
+        <!-- BENEFÍCIOS -->
+        <div class="card">
+            <h2>O Que Você Recebe</h2>
+            <div class="beneficios">
+                <div class="beneficio">
+                    <i class="fas fa-check"></i>
+                    <div>
+                        <h3>Site Profissional</h3>
+                        <p>1 página inicial com design moderno</p>
+                    </div>
+                </div>
+                <div class="beneficio">
+                    <i class="fas fa-check"></i>
+                    <div>
+                        <h3>Totalmente Responsivo</h3>
+                        <p>Perfeito em celulares e computadores</p>
+                    </div>
+                </div>
+                <div class="beneficio">
+                    <i class="fas fa-check"></i>
+                    <div>
+                        <h3>Configuração Incluída</h3>
+                        <p>Ajuda com DNS e hospedagem básica</p>
+                    </div>
+                </div>
+                <div class="beneficio">
+                    <i class="fas fa-check"></i>
+                    <div>
+                        <h3>Sem Mensalidades</h3>
+                        <p>Só paga o domínio anual (~R$40/ano)</p>
+                    </div>
+                </div>
+                <div class="beneficio">
+                    <i class="fas fa-check"></i>
+                    <div>
+                        <h3>Suporte 7 Dias</h3>
+                        <p>Ajustes gratuitos após a entrega</p>
+                    </div>
+                </div>
+                <div class="beneficio">
+                    <i class="fas fa-check"></i>
+                    <div>
+                        <h3>Entrega Rápida</h3>
+                        <p>Pronto em até 3 dias úteis</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SELO DE GARANTIA -->
+            <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: rgba(37, 99, 235, 0.1); border-radius: 10px;">
+                <i class="fas fa-shield-alt" style="font-size: 2.5rem; color: var(--azul); margin-bottom: 1rem;"></i>
+                <h3 style="color: var(--azul-escuro);">Garantia de Satisfação</h3>
+                <p>Se não gostar do resultado em 7 dias, devolvo seu dinheiro!</p>
+            </div>
+        </div>
+        
+        <!-- ANTES/DEPOIS -->
+        <div class="card">
+            <h2>Veja a Diferença</h2>
+            <div class="comparacao">
+                <div class="comparacao-item">
+                    <div class="comparacao-titulo" style="background: #e63946;">ANTES</div>
+                    <div class="comparacao-conteudo">
+                        <i class="fas fa-times" style="color: #e63946; font-size: 3rem;"></i>
+                        <p style="margin-top: 0.5rem;">Sem site ou site desatualizado</p>
+                    </div>
+                </div>
+                <div class="comparacao-item">
+                    <div class="comparacao-titulo" style="background: #2a9d8f;">DEPOIS</div>
+                    <div class="comparacao-conteudo">
+                        <i class="fas fa-check" style="color: #2a9d8f; font-size: 3rem;"></i>
+                        <p style="margin-top: 0.5rem;">Site profissional por apenas R$30</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PERGUNTAS -->
+        <div class="card">
+            <h2>Perguntas Frequentes</h2>
+            <div class="pergunta">
+                <h3>Preciso saber de tecnologia?</h3>
+                <p>Não! Eu explico tudo passo a passo. Você só precisa comprar o domínio (te ensino como).</p>
+            </div>
+            <div class="pergunta">
+                <h3>Posso ter mais de uma página?</h3>
+                <p>Sim! Páginas extras custam R$15 cada (como "sobre", "contato", etc.).</p>
+            </div>
+            <div class="pergunta">
+                <h3>E se eu não gostar do design?</h3>
+                <p>Fazemos até 2 revisões gratuitas para ajustar ao seu gosto.</p>
+            </div>
+            <div class="pergunta">
+                <h3>Preciso contratar hospedagem?</h3>
+                <p>Não! Incluo hospedagem básica gratuita por 1 ano. Depois, custa apenas R$10/mês se quiser continuar.</p>
+            </div>
+            <div class="pergunta">
+                <h3>Posso atualizar o site depois?</h3>
+                <p>Sim! Atualizações custam R$15 cada (ou pacote mensal por R$30 para até 4 atualizações).</p>
+            </div>
+        </div>
+        
+        <!-- DEPOIMENTOS -->
+        <div class="card">
+            <h2>O que dizem meus clientes</h2>
+            <div class="depoimentos-container">
+                <div class="depoimento">
+                    <div class="depoimento-cabecalho">
+                        <div class="depoimento-avatar">JL</div>
+                        <div>
+                            <h4 style="color: var(--azul-escuro);">João L.</h4>
+                            <div class="depoimento-estrelas">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Site ficou perfeito para meu negócio! Fizemos em 2 dias e já recebi clientes novos."</p>
+                </div>
+                <div class="depoimento">
+                    <div class="depoimento-cabecalho">
+                        <div class="depoimento-avatar">AS</div>
+                        <div>
+                            <h4 style="color: var(--azul-escuro);">Ana S.</h4>
+                            <div class="depoimento-estrelas">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Não sabia nada de tecnologia e o Janiel explicou tudo. Site lindo e barato!"</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- BARRA DE CONFIANÇA -->
+        <div style="text-align: center; margin: 2rem auto;">
+            <p style="color: var(--cinza); margin-bottom: 1rem;">⏤ Já ajudei +50 clientes ⏤</p>
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <span style="background: white; padding: 0.5rem 1.5rem; border-radius: 50px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                    <i class="fas fa-check" style="color: var(--azul);"></i> Sites Rápidos
+                </span>
+                <span style="background: white; padding: 0.5rem 1.5rem; border-radius: 50px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                    <i class="fas fa-check" style="color: var(--azul);"></i> Suporte Direto
+                </span>
+            </div>
+        </div>
+        
+        <!-- CHAMADA PARA AÇÃO -->
+        <div class="botoes">
+            <a href="https://wa.me/5538998508385" class="botao whatsapp">
+                <i class="fab fa-whatsapp"></i> Quero Meu Site
+                <small>✅ 7 dias de garantia</small>
+            </a>
+            <a href="https://t.me/janiellnet" class="botao telegram">
+                <i class="fab fa-telegram"></i> Falar no Telegram
+                <small>🕒 Resposta em 5min</small>
+            </a>
         </div>
     </div>
     
-    <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid #eee;">
-    
-    <div>
-        <h3 style="margin-bottom: 1rem;">Entre em Contato</h3>
-        <p style="margin-bottom: 1rem;">Dúvidas? Me chame em qualquer rede:</p>
-        
-        <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
-            <input type="checkbox" id="rede1" style="transform: scale(1.3);">
-            <input type="checkbox" id="rede2" style="transform: scale(1.3);">
+    <!-- RODAPÉ -->
+    <footer>
+        <h3>Entre em Contato</h3>
+        <p>Dúvidas? Me chame em qualquer rede:</p>
+        <div class="redes-sociais">
+            <a href="https://wa.me/5538998508385" class="rede-social">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://t.me/janiellnet" class="rede-social">
+                <i class="fab fa-telegram"></i>
+            </a>
+            <a href="https://instagram.com/janiel_sw7_" class="rede-social">
+                <i class="fab fa-instagram"></i>
+            </a>
         </div>
-    </div>
+        <p style="margin-top: 2rem;">© 2023 - (38) 99850-8385</p>
+    </footer>
     
-    <p style="text-align: center; margin-top: 2rem; color: var(--cinza);">© 2023 - Todos os direitos reservados.</p>
-</div>
+    <!-- WHATSAPP FLUTUANTE -->
+    <a href="https://wa.me/5538998508385" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- TIMER SCRIPT -->
+    <script>
+        // Timer de 5 horas
+        let time = 5 * 60 * 60;
+        const timer = setInterval(() => {
+            const hours = Math.floor(time / 3600).toString().padStart(2, '0');
+            const minutes = Math.floor((time % 3600) / 60).toString().padStart(2, '0');
+            const seconds = (time % 60).toString().padStart(2, '0');
+            document.getElementById('timer').textContent = `${hours}:${minutes}:${seconds}`;
+            time--;
+            if (time < 0) clearInterval(timer);
+        }, 1000);
+    </script>
+</body>
+</html>
