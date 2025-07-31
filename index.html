@@ -613,4 +613,401 @@
             animation: fadeIn 0.8s ease forwards;
         }
         
-        .delay-1 { animation-delay: 0.2s
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .price-tag {
+                font-size: 2rem;
+                padding: 0.8rem 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+                padding: 3rem 1rem;
+            }
+            
+            .process {
+                clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+            }
+            
+            .guarantee {
+                clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+            }
+            
+            .testimonial {
+                min-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- CABEÇALHO HERO -->
+    <section class="hero">
+        <div class="hero-content animate">
+            <h1>Seu Site Profissional por um Preço Incrível</h1>
+            <p>Presença digital de qualidade para seu negócio sem complicações e com resultado garantido</p>
+            
+            <div class="price-tag animate delay-1">
+                Apenas R$30
+            </div>
+            
+            <p class="animate delay-2">Você compra o domínio e eu crio o site completo!</p>
+            
+            <div class="cta-buttons animate delay-3">
+                <a href="https://wa.me/5538998508385" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> Quero Meu Site
+                </a>
+                <a href="https://t.me/janiellnet" class="btn btn-secondary">
+                    <i class="fab fa-telegram"></i> Falar no Telegram
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SEÇÃO DE DESTAQUES -->
+    <section class="features">
+        <div class="section-title animate">
+            <h2>O Que Você Vai Receber</h2>
+            <p>Um site profissional com tudo que você precisa para começar sua presença online</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card animate delay-1">
+                <div class="feature-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>Design Moderno</h3>
+                <p>Site com layout atualizado, seguindo as últimas tendências de design para impressionar seus clientes</p>
+            </div>
+            
+            <div class="feature-card animate delay-2">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Totalmente Responsivo</h3>
+                <p>Perfeito em qualquer dispositivo: celulares, tablets e computadores</p>
+            </div>
+            
+            <div class="feature-card animate delay-3">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Super Rápido</h3>
+                <p>Otimizado para performance e velocidade de carregamento</p>
+            </div>
+            
+            <div class="feature-card animate delay-1">
+                <div class="feature-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>Otimizado para SEO</h3>
+                <p>Configurado para melhor posicionamento nos mecanismos de busca</p>
+            </div>
+            
+            <div class="feature-card animate delay-2">
+                <div class="feature-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <h3>Hospedagem Grátis</h3>
+                <p>Configuração incluída com hospedagem básica gratuita</p>
+            </div>
+            
+            <div class="feature-card animate delay-3">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>Suporte Personalizado</h3>
+                <p>Atendimento direto para tirar dúvidas e ajudar na configuração</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SEÇÃO DE PROCESSO -->
+    <section class="process">
+        <div class="section-title animate">
+            <h2>Como Funciona</h2>
+            <p>O processo é simples, rápido e sem complicações</p>
+        </div>
+        
+        <div class="process-steps">
+            <div class="step animate delay-1">
+                <div class="step-number">1</div>
+                <h3>Você Compra o Domínio</h3>
+                <p>Adquira seu domínio (ex: seunegocio.com) em qualquer registrador como Registro.br ou Hostinger</p>
+            </div>
+            
+            <div class="step animate delay-2">
+                <div class="step-number">2</div>
+                <h3>Me Paga R$30</h3>
+                <p>Realize o pagamento via PIX e envie os materiais do seu negócio</p>
+            </div>
+            
+            <div class="step animate delay-3">
+                <div class="step-number">3</div>
+                <h3>Eu Crio Seu Site</h3>
+                <p>Em até 3 dias úteis seu site estará pronto e online</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SEÇÃO DE DEPOIMENTOS -->
+    <section class="testimonials">
+        <div class="section-title animate">
+            <h2>O Que Dizem Nossos Clientes</h2>
+            <p>Veja a opinião de quem já contratou nossos serviços</p>
+        </div>
+        
+        <div class="testimonials-slider">
+            <div class="testimonial animate delay-1">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="João L.">
+                    </div>
+                    <div class="testimonial-info">
+                        <h4>João L.</h4>
+                        <p>Pequeno Empresário</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-text">
+                    "Site ficou perfeito para meu negócio! Fizemos em 2 dias e já recebi clientes novos através do site. O atendimento foi excelente e todas minhas solicitações foram atendidas."
+                </div>
+            </div>
+            
+            <div class="testimonial animate delay-2">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana S.">
+                    </div>
+                    <div class="testimonial-info">
+                        <h4>Ana S.</h4>
+                        <p>Designer Freelancer</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-text">
+                    "Atendimento impecável, sempre atencioso e ágil. Fiquei encantada com o resultado final! O site captura perfeitamente a essência do meu trabalho e já recebi vários elogios."
+                </div>
+            </div>
+            
+            <div class="testimonial animate delay-3">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Marcos T.">
+                    </div>
+                    <div class="testimonial-info">
+                        <h4>Marcos T.</h4>
+                        <p>Consultor Financeiro</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-text">
+                    "Muito satisfeito com a entrega! O site carrega rápido e é fácil de usar no celular. O preço é justo pelo serviço oferecido. Recomendo!"
+                </div>
+            </div>
+            
+            <div class="testimonial animate delay-1">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Camila R.">
+                    </div>
+                    <div class="testimonial-info">
+                        <h4>Camila R.</h4>
+                        <p>Nutricionista</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-text">
+                    "Além de profissional, teve sensibilidade em entender minha marca. Me surpreendi com o cuidado! O site reflete exatamente o que eu queria transmitir para meus pacientes."
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SEÇÃO DE PERGUNTAS -->
+    <section class="faq">
+        <div class="section-title animate">
+            <h2>Perguntas Frequentes</h2>
+            <p>Tire suas dúvidas sobre nosso serviço</p>
+        </div>
+        
+        <div class="faq-container">
+            <div class="accordion animate delay-1">
+                <div class="accordion-header">
+                    <span>Preciso saber de tecnologia para contratar?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Não! Nós explicamos tudo passo a passo de forma simples. Você só precisa comprar o domínio (que ensinamos como fazer) e nos enviar o material do seu negócio (textos e fotos). Todo o resto fica por nossa conta.</p>
+                </div>
+            </div>
+            
+            <div class="accordion animate delay-2">
+                <div class="accordion-header">
+                    <span>E se eu não gostar do design do site?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Oferecemos até 2 revisões gratuitas para ajustar o design ao seu gosto. Queremos que você fique 100% satisfeito com o resultado final.</p>
+                </div>
+            </div>
+            
+            <div class="accordion animate delay-3">
+                <div class="accordion-header">
+                    <span>Preciso contratar hospedagem separadamente?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Não! Incluímos hospedagem básica gratuita para seu site. Se no futuro seu site crescer e precisar de mais recursos, podemos conversar sobre opções de hospedagem premium.</p>
+                </div>
+            </div>
+            
+            <div class="accordion animate delay-1">
+                <div class="accordion-header">
+                    <span>Posso atualizar o conteúdo do site depois?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Sim! Oferecemos pacotes de manutenção mensal por R$30 que incluem até 3 atualizações de conteúdo. Atualizações avulsas custam R$15 cada.</p>
+                </div>
+            </div>
+            
+            <div class="accordion animate delay-2">
+                <div class="accordion-header">
+                    <span>Quanto tempo leva para o site ficar pronto?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>O prazo médio é de 3 dias úteis após o recebimento de todos os materiais e confirmação do pagamento. Casos mais complexos podem levar até 5 dias.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SEÇÃO DE GARANTIA -->
+    <section class="guarantee">
+        <div class="guarantee-container animate">
+            <div class="guarantee-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h2>Garantia de Satisfação</h2>
+            <p>Testou e não gostou? Devolvemos seu dinheiro!</p>
+            <p>Você tem 24 horas após a entrega do site para avaliar. Se por qualquer motivo não ficar satisfeito, devolvemos 100% do valor pago. Sem burocracia.</p>
+        </div>
+    </section>
+    
+    <!-- SEÇÃO DE CTA FINAL -->
+    <section class="final-cta">
+        <div class="animate">
+            <h2>Pronto para Ter Seu Site Profissional?</h2>
+            <p>Não perca a oportunidade de ter uma presença online de qualidade por um preço acessível. Fale conosco agora mesmo!</p>
+            
+            <div class="cta-buttons animate delay-1">
+                <a href="https://wa.me/5538998508385" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> Quero Meu Site
+                </a>
+                <a href="https://t.me/janiellnet" class="btn btn-secondary">
+                    <i class="fab fa-telegram"></i> Falar no Telegram
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- RODAPÉ -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Sobre Nós</h3>
+                <p>Criação de sites profissionais e acessíveis para pequenos negócios e profissionais liberais.</p>
+                <div class="social-links">
+                    <a href="https://wa.me/5538998508385" class="social-link">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://t.me/janiellnet" class="social-link">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://instagram.com/janiel_sw7_" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Links Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Como Funciona</a></li>
+                    <li><a href="#">Benefícios</a></li>
+                    <li><a href="#">Depoimentos</a></li>
+                    <li><a href="#">Perguntas Frequentes</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contato</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-phone-alt"></i> (38) 99850-8385</li>
+                    <li><i class="fas fa-envelope"></i> contato@seusite.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Minas Gerais, Brasil</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Criação de Sites Profissionais. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <!-- WHATSAPP FLUTUANTE -->
+    <a href="https://wa.me/5538998508385" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <script>
+        // Accordion functionality
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const accordion = header.parentElement;
+                accordion.classList.toggle('active');
+            });
+        });
+        
+        // Simple animation on scroll
+        const animateElements = document.querySelectorAll('.animate');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        animateElements.forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
