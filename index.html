@@ -522,11 +522,11 @@
         <div class="botoes">
             <a href="https://wa.me/5538998508385" class="botao whatsapp">
                 <i class="fab fa-whatsapp"></i> Quero Meu Site
-                <small>✅ 7 dias de garantia</small>
+                <small></small>
             </a>
             <a href="https://t.me/janiellnet" class="botao telegram">
                 <i class="fab fa-telegram"></i> Falar no Telegram
-                <small>🕒 Resposta em 5min</small>
+                <small></small>
             </a>
         </div>
     </div>
@@ -554,18 +554,5 @@
         <i class="fab fa-whatsapp"></i>
     </a>
     
-    <!-- TIMER SCRIPT -->
-    <script>
-        // Timer de 5 horas
-        let time = 5 * 60 * 60;
-        const timer = setInterval(() => {
-            const hours = Math.floor(time / 3600).toString().padStart(2, '0');
-            const minutes = Math.floor((time % 3600) / 60).toString().padStart(2, '0');
-            const seconds = (time % 60).toString().padStart(2, '0');
-            document.getElementById('timer').textContent = `${hours}:${minutes}:${seconds}`;
-            time--;
-            if (time < 0) clearInterval(timer);
-        }, 1000);
-    </script>
 </body>
 </html>
